@@ -1,26 +1,20 @@
 module.exports = {
-  title: "Pika",
+  title: "Pika文档",
   description:
     "Pika 是一个以 RocksDB 为存储引擎的的大容量、高性能、多租户、数据可持久化的弹性 KV 数据存储系统。Pika 力求在完全兼容 Redis 协议、 继承 Redis 便捷运维设计的前提下， 通过持久化存储的方式解决 Redis 在大容量场景下的问题，如单线程易阻塞、服务器资源有限、加载数据慢、故障切换成本高。",
   base: "/",
   theme: "vuepress-theme-reco",
   // theme: "vdoing",
   lang: "zh-CN",
+  head: [["link", { rel: "icon", href: "/pika-logo-trans.png" }]],
   themeConfig: {
     docsDir: "/docs",
+    // 导航栏
     logo: "/pika-smalllogo.png",
     mode: "light",
     modePicker: false,
     search: true,
     noFoundPageByTencent: false,
-    // 导航栏
-    record: "京 ICP 证 123456 号",
-    recordLink: "https://beian.miit.gov.cn",
-    cyberSecurityRecord:
-      "京 ICP 备 13052560 号 - 1 · 京公网安备 11010802020088 号",
-    cyberSecurityLink: "https://beian.miit.gov.cn",
-    author: "Pika",
-    startYear: "2015",
     nav: [
       { text: "首页", link: "/" },
       {
@@ -337,6 +331,14 @@ module.exports = {
     themeConfig: {
       noFoundPageByTencent: false,
     },
+    // Footer
+    record: "京 ICP 证 123456 号",
+    recordLink: "https://beian.miit.gov.cn",
+    cyberSecurityRecord:
+      "京 ICP 备 13052560 号 - 1 · 京公网安备 11010802020088 号",
+    cyberSecurityLink: "https://beian.miit.gov.cn",
+    author: "Pika",
+    startYear: "2015",
   },
   plugins: [
     [
