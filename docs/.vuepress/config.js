@@ -5,19 +5,21 @@ module.exports = {
   base: "/",
   theme: "vuepress-theme-reco",
   // theme: "vdoing",
+  lang: "zh-CN",
   themeConfig: {
     docsDir: "/docs",
     logo: "/pika-smalllogo.png",
     mode: "light",
     modePicker: false,
-    search: false,
+    search: true,
+    noFoundPageByTencent: false,
     // 导航栏
     record: "京 ICP 证 123456 号",
     recordLink: "https://beian.miit.gov.cn",
     cyberSecurityRecord: '京 ICP 备 13052560 号 - 1 · 京公网安备 11010802020088 号',
     cyberSecurityLink: "https://beian.miit.gov.cn",
     author: "Pika",
-    startYear: "2021",
+    startYear: "2015",
     nav: [
       { text: "首页", link: "/" },
       {
