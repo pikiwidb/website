@@ -16,7 +16,8 @@ module.exports = {
     // 导航栏
     record: "京 ICP 证 123456 号",
     recordLink: "https://beian.miit.gov.cn",
-    cyberSecurityRecord: '京 ICP 备 13052560 号 - 1 · 京公网安备 11010802020088 号',
+    cyberSecurityRecord:
+      "京 ICP 备 13052560 号 - 1 · 京公网安备 11010802020088 号",
     cyberSecurityLink: "https://beian.miit.gov.cn",
     author: "Pika",
     startYear: "2015",
@@ -83,7 +84,7 @@ module.exports = {
             },
             {
               title: "分片教程",
-              path: "/document/use/Pika_Sharding_Tutorials",
+              path: "/document/use/Pika分片",
             },
             // {
             //   title: "分片版本命令",
@@ -122,23 +123,29 @@ module.exports = {
           collapsable: false,
           children: [
             { title: "3.2.x性能", path: "/document/performance/3.2.x性能" },
-            {
-              title: "Redis 与 Pika 缓存使用",
-              path: "/document/performance/喜马拉雅Redis与Pika缓存使用军规",
-            },
+            { title: "Pika内存使用", path: "/document/use/Pika内存使用" },
             {
               title: "Redis 与 Pika scan 性能对比",
               path: "/document/performance/Redis与Pikascan性能对比",
             },
             {
-              title: "调整 max-write-buffer-size",
-              path: "/document/performance/调整max-write-buffer-size",
-            },
-            {
               title: "Pika 3.5 参数优化手册",
               path: "/document/performance/Pika3.5参数优化手册",
             },
-            { title: "Pika内存使用", path: "/document/use/Pika内存使用" },
+            {
+              title: "Pika 优化案例",
+              collapsable: true,
+              children: [
+                {
+                  title: "喜马拉雅缓存使用军规",
+                  path: "/document/performance/喜马拉雅Redis与Pika缓存使用军规",
+                },
+                {
+                  title: "优化性能10倍的案例",
+                  path: "/document/performance/调整max-write-buffer-size",
+                },
+              ],
+            },
           ],
         },
         {
@@ -328,7 +335,7 @@ module.exports = {
       ],
     },
     themeConfig: {
-      noFoundPageByTencent: false
+      noFoundPageByTencent: false,
     },
   },
   plugins: [

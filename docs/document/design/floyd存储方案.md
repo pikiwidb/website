@@ -3,7 +3,6 @@ title: floyd存储方案
 # author: --
 # date: '2023-12-02'
 ---
-# pika存储结构
 
 ## 整体架构
 

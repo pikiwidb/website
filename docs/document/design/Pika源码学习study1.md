@@ -4,9 +4,10 @@ title: Pika源码学习--pika的通信和线程模型
 # date: '2023-12-02'
 ---
 
-pika 的线程模型有官方的 wiki 介绍https://github.com/Qihoo360/pika/wiki/pika-%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B，这里主要介绍了pika都有哪些线程，这些线程用来干嘛。本篇文章主要涉及监听线程DispatchThread、IO工作线程WorkerThread和工作线程池ThreadPool，结合代码介绍里面实现的一些细节。
 
-- 1.监听线程 DispatchThread
+pika 的线程模型有官方的[wiki 介绍](https://github.com/Qihoo360/pika/wiki/pika-%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B)，这里主要介绍了 pika 都有哪些线程，这些线程用来干嘛。本篇文章主要涉及监听线程 DispatchThread、IO 工作线程 WorkerThread 和工作线程池 ThreadPool，结合代码介绍里面实现的一些细节。
+
+## 1.监听线程 DispatchThread
 
 在创建 PikaServer 的时候，会构造一个 PikaDispatchThread，这个 PikaDispatchThread，实际上是用了 pink 网络库的 DispatchThread::DispatchThread
 
@@ -30,7 +31,7 @@ DispatchThread::HandleNewConn 如何处理连接呢？实际上监听线程会�
 
 ![](https://img2020.cnblogs.com/blog/1993880/202005/1993880-20200504211503089-556234836.png)
 
-- 2.IO 工作线程 WorkerThread
+## 2.IO 工作线程 WorkerThread
 
 DispatchThread::StartThread 的时候会起 WorkerThread 线程，WorkerThread 也是继承了 Thread，因此工作线程的入口是 WorkerThread::ThreadMain。上文说到监听线程把新的连接放到 WorkerThread 的队列里面后，通知了 WorkerThread 进行处理。下面我们看看 WorkerThread 怎么处理的。  
 WorkerThread 同样是一个 Epoll，这里会处理新连接请求事件和已连接请求的事件，如果 Epoll 返回的 fd 是 notify_receive_fd，即管道的接收 fd，说明是内部的通知事件，一次性读取多个字节的内容，因为前面已知每个通知是 1 个字节，因此这里读到了多少个字节就说明有多少个通知，然后在一个循环里面处理这些请求。类型为 kNotiConnect 则是新的连接，这里会把监听线程 push 的 PinkItem 取出来，然后创建一个 NewPinkConn，加到 conns\_里面，并且把这个 fd 加到 WorkerThread 的 epoll，后续的消息事件就可以在这个 epoll 被处理。这里 conn_factory 用的是 ClientConnFactory，返回的是 PikaClientConn，继承了 pink::RedisConn。
@@ -54,7 +55,7 @@ RedisConn::GetRequest 里面，使用 RedisParser::ProcessRequestBuffer 来解�
 
 ![](https://img2020.cnblogs.com/blog/1993880/202005/1993880-20200504211623299-1545622130.png)
 
-- 3.工作线程池 ThreadPool
+## 3.工作线程池 ThreadPool
 
 PikaServer 构造的时候会创建一个 PikaClientProcessor，PikaClientProcessor 里面有一个 ThreadPool，ThreadPool 启动时会创建 Worker 线程，Worker 线程实际的处理函数是 ThreadPool::runInThread()
 
@@ -72,7 +73,7 @@ ThreadPool::Schedule 里面，把参数封装成 Task，然后 push 到线程池
 
 ![](https://img2020.cnblogs.com/blog/1993880/202005/1993880-20200504211706011-1186397446.png)
 
-- 4.命令处理和响应流程
+## 4.命令处理和响应流程
 
 线程池里面实际处理命令的是 DoBackgroundTask，我们先来看看命令是怎么被处理的。DoBackgroundTask 里面调用的是 PikaClientConn::BatchExecRedisCmd
 
@@ -92,7 +93,7 @@ _连接的 fd 加进 epoll 后，fd 可写了，那么 epoll 会返回可写事�
 
 ![](https://img2020.cnblogs.com/blog/1993880/202005/1993880-20200504211757806-720675248.png)
 
-- 5.总结
+## 5.总结
 
 通过上面的分析可以知道，监听线程是用来监听新的连接，连接来了会交由 WorkerThread 处理，已建立连接的请求会由 WorkerThread 封装成 Task 交给线程池 ThreadPool 处理，ThreadPool 处理完了后，还是由 WorkerThread 来回复。WorkerThread 就是做接收消息，回复消息的，而 ThreadPool 只是处理消息，不涉及接收和回复的 IO 操作。这 3 者的关系大概如下图所示：
 

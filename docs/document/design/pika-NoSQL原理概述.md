@@ -3,38 +3,34 @@ title: pika-NoSQL原理概述
 # author: --
 # date: '2023-12-02'
 ---
-##### pika
 
-pika是一款基于rocksdb可持久化兼容redis协议的kv存储。当前最新的特性中还支持codis，可作为codis的后端存储使用，但是运维命令稍微有些不同。pika相对于redis而言主要是适合在容量大的场景下，简化了数据加载和迁移的相关操作，但是整体基于硬盘或者[SSD](https://so.csdn.net/so/search?q=SSD&spm=1001.2101.3001.7020)的存储响应性能可能会差些。不过本文只是简单的来了解一下pika的设计的思路，方便以后在使用过程中加快对问题的诊断。
+## pika 设计
 
-##### pika设计
+pika 在设计的时候支持了两种运行模式，即经典模式和分布式模式。
 
-pika在设计的时候支持了两种运行模式，即经典模式和[分布式](https://so.csdn.net/so/search?q=%E5%88%86%E5%B8%83%E5%BC%8F&spm=1001.2101.3001.7020)模式。
-
-| 模式 | 原理 |
-| --- | --- |
-| 经典模式 | 即一主多从模式，安装pika实例维度，即1个pika实例的数据可以被多个从实例数据同步。 |
-| 分布式模式 | 即用户的数据集合称为table，将table切分成多个分片，每个分片称为slot，对于某个key的数据是由哈希算法计算来决定属于哪个slot，将所有slots及其副本按照一定策略分散到所有的pika实例中，每个pika实例有一部分的主slot和一部分从slot，主从的维度为slot。 |
+| 模式       | 原理                                                                                                                                                                                                                                                            |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 经典模式   | 即一主多从模式，安装 pika 实例维度，即 1 个 pika 实例的数据可以被多个从实例数据同步。                                                                                                                                                                           |
+| 分布式模式 | 即用户的数据集合称为 table，将 table 切分成多个分片，每个分片称为 slot，对于某个 key 的数据是由哈希算法计算来决定属于哪个 slot，将所有 slots 及其副本按照一定策略分散到所有的 pika 实例中，每个 pika 实例有一部分的主 slot 和一部分从 slot，主从的维度为 slot。 |
 
 官网原理图如下
 
 经典模式
-
-![在这里插入图片描述](https://img-blog.csdnimg.cn/fbb32ba27ac84f57901672ef4d2967ed.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5bCP5bGL5a2Q5aSn5L6g,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center)
+![](/classic_framework.png)
 
 分布式模式  
-![在这里插入图片描述](https://img-blog.csdnimg.cn/ed53f30617f741429ee6c1308bfa4a34.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5bCP5bGL5a2Q5aSn5L6g,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center)
+![](/distributed_framework.png)
 
-从原理图中，也可以清晰的看出经典模式以实例为维度，分布式模式以slot为维度。
+从原理图中，也可以清晰的看出经典模式以实例为维度，分布式模式以 slot 为维度。
 
-###### pika启动流程
+## pika 启动流程
 
-基于pika-3.4.0版本的代码结构，其中pika引用了四个第三方的库，分别如下：
+基于 pika-3.4.0 版本的代码结构，其中 pika 引用了四个第三方的库，分别如下：
 
-1. Blackwidow，由piak自行维护的基于rocksdb的存储管理，所有pika的数据操作都会通过blackwidow的封装最终落入rocksdb。
-2. Glog，日志库，用于pika项目输入不同等级的日志。
-3. Pink，由pika自行维护的事件驱动框架，封装了redis协议的解析分发功能，并提供回调函数进行处理。
-4. Slash，一些处理工具函数，例如同步的或者数据类型的工具函数。
+1.  Blackwidow，由 piak 自行维护的基于 rocksdb 的存储管理，所有 pika 的数据操作都会通过 blackwidow 的封装最终落入 rocksdb。
+2.  Glog，日志库，用于 pika 项目输入不同等级的日志。
+3.  Pink，由 pika 自行维护的事件驱动框架，封装了 redis 协议的解析分发功能，并提供回调函数进行处理。
+4.  Slash，一些处理工具函数，例如同步的或者数据类型的工具函数。
 
 启动流程中最主要的几个函数如下：
 
@@ -59,9 +55,9 @@ int main(int argc, char *argv[]) {
 
 ```
 
-分为四步，即首先初始化cmd的命令，然后初始化PikaServer，接着初始化PikaReplicaManager，最后初始化PikaProxy，主要的启动函数就是如上几步，接着就继续分析一下。
+分为四步，即首先初始化 cmd 的命令，然后初始化 PikaServer，接着初始化 PikaReplicaManager，最后初始化 PikaProxy，主要的启动函数就是如上几步，接着就继续分析一下。
 
-###### PikaServer功能
+## PikaServer 功能
 
 ```c++
 PikaServer::PikaServer() :
@@ -117,9 +113,9 @@ PikaServer::PikaServer() :
 }
 ```
 
-这其中初始化了大量的工作线程，来启动协同处理分别启动了6个不同的线程池或者线程来进行不同的处理工作。
+这其中初始化了大量的工作线程，来启动协同处理分别启动了 6 个不同的线程池或者线程来进行不同的处理工作。
 
-###### PikaDispatchThread
+## PikaDispatchThread
 
 ```c++
 PikaDispatchThread::PikaDispatchThread(std::set<std::string> &ips, int port, int work_num,
@@ -150,7 +146,7 @@ private:
    private:
      int max_conn_rbuf_size_;
     ...
-      
+
 	...
   extern ServerThread *NewDispatchThread(
     const std::set<std::string>& ips, int port,
@@ -160,7 +156,7 @@ private:
   return new DispatchThread(ips, port, work_num, conn_factory,
                             cron_interval, queue_limit, handle);
   ...
-    
+
   ...
   DispatchThread::DispatchThread(const std::set<std::string>& ips, int port,
                                int work_num, ConnFactory* conn_factory,
@@ -202,10 +198,9 @@ int DispatchThread::StartThread() {
   return ServerThread::StartThread();
 }
 ...
-      
 ```
 
-此时会使用PikaDispatchThread的工厂方法来处理新接入的连接，并且每一个新进来的请求通过NewPinkConn来进行初始化，并接入处理。其中DispatchThread就是位于pink的库中实现的方法其中ServerThread机会在初始化的过程中进行端口IP的监听，在事件响应之后就会调用HandleNewConn方法来处理新加入的连接信息，会在处理的过程中进行一个轮训的操作来分配到工作线程，在加入事件之后就会通过新生成一个PikaClientConn来进行事件处理，当pink中的redisconn解析到了完整的命令的时候就会调用PikaClientConn的ProcessRedisCmds方法来处理（中间的逻辑有点复杂大家有兴趣可以自行查找源码阅读一下）。
+此时会使用 PikaDispatchThread 的工厂方法来处理新接入的连接，并且每一个新进来的请求通过 NewPinkConn 来进行初始化，并接入处理。其中 DispatchThread 就是位于 pink 的库中实现的方法其中 ServerThread 机会在初始化的过程中进行端口 IP 的监听，在事件响应之后就会调用 HandleNewConn 方法来处理新加入的连接信息，会在处理的过程中进行一个轮训的操作来分配到工作线程，在加入事件之后就会通过新生成一个 PikaClientConn 来进行事件处理，当 pink 中的 redisconn 解析到了完整的命令的时候就会调用 PikaClientConn 的 ProcessRedisCmds 方法来处理（中间的逻辑有点复杂大家有兴趣可以自行查找源码阅读一下）。
 
 ```c++
 void PikaClientConn::ProcessRedisCmds(const std::vector<pink::RedisCmdArgsType>& argvs, bool async, std::string* response) {
@@ -249,7 +244,7 @@ void PikaClientConn::ExecRedisCmd(const PikaCmdArgsType& argv, std::shared_ptr<s
   }
 }
 ...
-  
+
 std::shared_ptr<Cmd> PikaClientConn::DoCmd(
     const PikaCmdArgsType& argv,
     const std::string& opt,
@@ -339,7 +334,7 @@ std::shared_ptr<Cmd> PikaClientConn::DoCmd(
   }
 
   // Process Command   执行命令
-  c_ptr->Execute(); 
+  c_ptr->Execute();
 
   if (g_pika_conf->slowlog_slower_than() >= 0) {
     ProcessSlowlog(argv, start_us);
@@ -353,7 +348,7 @@ std::shared_ptr<Cmd> PikaClientConn::DoCmd(
 ...
 ```
 
-通过层层的调用关系最终调用到了Cmd类的Do方法，例如SetCmd的执行流程如下：
+通过层层的调用关系最终调用到了 Cmd 类的 Do 方法，例如 SetCmd 的执行流程如下：
 
 ```c++
 void SetCmd::Do(std::shared_ptr<Partition> partition) {
@@ -393,9 +388,9 @@ void SetCmd::Do(std::shared_ptr<Partition> partition) {
 }
 ```
 
-至此就是通过一个简单的set命令来进行的流程，当然中间省略了很多复杂的交互细节，并且跳过了pink库的一个处理流程，最终会回调在pika中的ProcessRedisCmds处理。
+至此就是通过一个简单的 set 命令来进行的流程，当然中间省略了很多复杂的交互细节，并且跳过了 pink 库的一个处理流程，最终会回调在 pika 中的 ProcessRedisCmds 处理。
 
-###### PikaClientProcessor
+### PikaClientProcessor
 
 ```c++
 PikaClientProcessor::PikaClientProcessor(
@@ -410,10 +405,10 @@ PikaClientProcessor::PikaClientProcessor(
 }
 ```
 
-主要是生成线程池来进行后台运行。在上一节中分析的task就是交给了pool\_线程池来进行数据的处理。一些协调数据同步的工作就交给了bg\_threads线程池处理。
+主要是生成线程池来进行后台运行。在上一节中分析的 task 就是交给了 pool\_线程池来进行数据的处理。一些协调数据同步的工作就交给了 bg_threads 线程池处理。
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/8987955274354b59b1966e1dc87506c3.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5bCP5bGL5a2Q5aSn5L6g,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center)
+![](/pika_threads.png)
 
-##### 总结
+## 总结
 
-本文主要简单的描述了有关piak的总体设计框架（参考官网架构），简单的通过PikaServer的启动过程来描述了一下基础的处理逻辑，因为这其中涉及到大量的细节故并没有详尽的去分析，并且也没有涉及到其他的功能比如slot的数据一致性保证等等细节，后续有继续再继续查阅相关内容。由于本人才疏学浅，如有错误请批评指正。
+本文主要简单的描述了有关 piak 的总体设计框架（参考官网架构），简单的通过 PikaServer 的启动过程来描述了一下基础的处理逻辑，因为这其中涉及到大量的细节故并没有详尽的去分析，并且也没有涉及到其他的功能比如 slot 的数据一致性保证等等细节，后续有继续再继续查阅相关内容。由于本人才疏学浅，如有错误请批评指正。

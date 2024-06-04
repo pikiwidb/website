@@ -3,7 +3,7 @@ title: cpp coding style
 # author: --
 # date: '2023-12-02'
 ---
-### c++ coding style
+## c++ coding style
 
 ### header file
 
