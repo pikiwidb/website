@@ -1,12 +1,8 @@
 ---
 title: Pika 动态
-date: 2024-06-01 15:01:41
-permalink: /pages/0e661d/
-categories: 
-  - document
-tags: 
-  - 
 ---
+| 链接 | 日期 |
+| :---- | ----: |
 | [What's new in PikiwiDB(Pika) v3.5.4](https://mp.weixin.qq.com/s/_l0ojZKFXanRN4rG7ihZFQ) | 2024-05-16 |
 | [PikiwiDB (Pika) 又参加 2024 OSPP，提供 8 道题目和实习机会](https://mp.weixin.qq.com/s/wpN4sNmMxnm-eZcXI6CriA) | 2024-05-14 |
 | [PikiwiDB(Pika) 邀你参加 2024 开源之夏，赢万元大奖](https://mp.weixin.qq.com/s/FOPaf6q6tP0jSTOuPFnSbg) | 2024-04-25 |

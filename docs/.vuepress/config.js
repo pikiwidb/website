@@ -8,8 +8,16 @@ module.exports = {
   themeConfig: {
     docsDir: "/docs",
     logo: "/pika-smalllogo.png",
+    mode: "light",
+    modePicker: false,
     search: false,
     // 导航栏
+    record: "京 ICP 证 123456 号",
+    recordLink: "https://beian.miit.gov.cn",
+    cyberSecurityRecord: '京 ICP 备 13052560 号 - 1 · 京公网安备 11010802020088 号',
+    cyberSecurityLink: "https://beian.miit.gov.cn",
+    author: "Pika",
+    startYear: "2021",
     nav: [
       { text: "首页", link: "/" },
       {
@@ -264,6 +272,7 @@ module.exports = {
           children: [
             { title: "Pika 公告栏", path: "/document/Pika动态" },
             { title: "项目支持", path: "/document/项目支持" },
+            { title: "未来规划", path: "/document/未来规划" },
             { title: "社区贡献文档", path: "/document/社区贡献文档" },
           ],
         },
@@ -316,6 +325,9 @@ module.exports = {
           ],
         },
       ],
+    },
+    themeConfig: {
+      noFoundPageByTencent: false
     },
   },
   plugins: [

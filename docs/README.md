@@ -18,12 +18,4 @@ features:
   details: 支持单机主从模式(slaveof)和 Codis 集群模式，能够轻易实现扩缩容
 - title: 便于运维
   details: 提供了完整的运维命令和详细文档，能够轻松地上手运维
-footer: MIT Licensed | Copyright © Pika
-# footer: false
-# footer: # 底部模块的配置
-#   record: MIT Licensed
-#   recordLink: https://github.com/OpenAtomFoundation/pika
-#   cyberSecurityRecord: Copyright © Pika
-#   # cyberSecurityLink: https://tsm.miit.gov.cn/dxxzsp/
-#   startYear: 2018
 ---
