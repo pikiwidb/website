@@ -1,13 +1,13 @@
 {
-  "name": "pika-portal",
+  "name": "pika-doc",
   "version": "0.0.1",
-  "description": "pika portal",
+  "description": "pika documents",
   "main": "index.js",
   "scripts": {
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:dev": "export NODE_OPTIONS=--openssl-legacy-provider && vuepress dev docs",
+    "docs:build": "export NODE_OPTIONS=--openssl-legacy-provider && vuepress build docs"
   },
-  "author": "",
+  "author": "pika",
   "license": "ISC",
   "devDependencies": {
     "@vuepress-reco/vuepress-plugin-bulletin-popover": "^1.6.16",
