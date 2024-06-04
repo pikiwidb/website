@@ -1,9 +1,10 @@
 module.exports = {
   title: "Pika",
   description:
-    "Pika是一个可持久化的大容量Redis存储服务，兼容string、hash、list、zset、set的绝大接口兼容详情，解决Redis由于存储数据量巨大而导致内存不够用的容量瓶颈。",
+    "Pika 是一个以 RocksDB 为存储引擎的的大容量、高性能、多租户、数据可持久化的弹性 KV 数据存储系统。Pika 力求在完全兼容 Redis 协议、 继承 Redis 便捷运维设计的前提下， 通过持久化存储的方式解决 Redis 在大容量场景下的问题，如单线程易阻塞、服务器资源有限、加载数据慢、故障切换成本高。",
   base: "/",
   theme: "vuepress-theme-reco",
+  // theme: "vdoing",
   themeConfig: {
     docsDir: "/docs",
     logo: "/pika-smalllogo.png",
@@ -20,9 +21,13 @@ module.exports = {
         // ],
       },
       { text: "工具包", link: "/tool/3.2.新旧可读三类binlog转换工具" },
-      { text: "GitHub", link: "https://github.com/OpenAtomFoundation/pika" },
+      // { text: "GitHub", link: "https://github.com/OpenAtomFoundation/pika" },
+      {
+        text: "GitHub",
+        icon: "reco-github",
+        link: "https://github.com/OpenAtomFoundation/pika",
+      },
     ],
-
     subSidebar: "auto",
     sidebar: {
       "/document/": [
@@ -45,8 +50,9 @@ module.exports = {
         },
         {
           title: "使用与运维",
-        //   path: "/document/use/安装使用",
-          collapsable: true,
+          path: "/document/use/安装使用",
+          // collapsable: true,
+          collapsable: false,
           children: [
             { title: "安装使用", path: "/document/use/安装使用" },
             { title: "配置文件", path: "/document/use/配置文件说明" },
@@ -67,21 +73,21 @@ module.exports = {
               path: "/document/use/Pika多库版命令",
             },
             {
-              title: "Pika 分片",
+              title: "分片教程",
               path: "/document/use/Pika_Sharding_Tutorials",
             },
+            // {
+            //   title: "分片版本命令",
+            //   path: "/document/use/Pika分片版本命令",
+            // },
             {
-              title: "Pika分片版本命令",
-              path: "/document/use/Pika分片版本命令",
-            },
-            {
-              title: "副本一致性使用说明",
+              title: "副本一致性",
               path: "/document/use/副本一致性使用说明",
             },
-            { title: "Pika最佳实践", path: "/document/use/Pika最佳实践" },
+            { title: "最佳实践", path: "/document/use/Pika最佳实践" },
             {
-              title: "Pika升级指南",
-            //   path: "/document/use/如何实现3.3.6升级到3.5.x",
+              title: "升级指南",
+              path: "/document/use/如何实现3.3.6升级到3.5.x",
               collapsable: true,
               children: [
                 {
@@ -102,12 +108,13 @@ module.exports = {
         },
         {
           title: "性能与优化",
-        //   path: "/document/performance/3.2.x性能",
-          collapsable: true,
+          // path: "/document/performance/3.2.x性能",
+          // collapsable: true,
+          collapsable: false,
           children: [
             { title: "3.2.x性能", path: "/document/performance/3.2.x性能" },
             {
-              title: "喜马拉雅 Redis 与 Pika 缓存使用军规",
+              title: "Redis 与 Pika 缓存使用",
               path: "/document/performance/喜马拉雅Redis与Pika缓存使用军规",
             },
             {
@@ -126,55 +133,68 @@ module.exports = {
           ],
         },
         {
-            title: "设计与实现",
-            path: "/document/design/整体架构",
-            collapsable: true,
-            children: [
-              { title: "整体架构", path: "/document/design/整体架构" },
-              { title: "线程模型", path: "/document/design/线程模型" },
-              { title: "全同步", path: "/document/design/全同步" },
-              { title: "增量同步", path: "/document/design/增量同步" },
-              { title: "副本一致性", path: "/document/design/副本一致性" },
-              { title: "快照式备份", path: "/document/design/快照式备份" },
-              { title: "锁的应用", path: "/document/design/锁的应用" },
-              {
-                title: "nemo存储引擎数据格式",
-                path: "/document/design/nemo存储引擎数据格式",
-              },
-              {
-                title: "blackwidow存储引擎数据格式",
-                path: "/document/design/blackwidow存储引擎数据格式",
-              },
-              {
-                title: "Pika的通信和线程模型",
-                path: "/document/design/Pika源码学习study1",
-              },
-              {
-                title: "Pika的PubSub机制",
-                path: "/document/design/Pika源码学习study2",
-              },
-              {
-                title: "Pika的命令执行框架",
-                path: "/document/design/Pika源码学习study3",
-              },
-              {
-                title: "Pika和rocksdb的对接",
-                path: "/document/design/Pika源码学习study4",
-              },
-              { title: "Pika-NoSQL原理概述", path: "/document/design/pika-NoSQL原理概述" },
-              {
-                title: "Pika在codis中的探索",
-                path: "/document/design/pika在codis中的探索",
-              },
-              { title: "Pika 笔记", path: "/document/design/Pika笔记" },
-              { title: "Pika 主从同步原理", path: "/document/design/pika主从同步原理" },
-              {
-                title: "Pika 新存储结构 Floyd",
-                path: "/document/design/Pika新存储结构Floyd",
-              },
-              { title: "floyd 存储方案", path: "/document/design/floyd存储方案" },
-            ],
-          },
+          title: "设计与实现",
+          // path: "/document/design/整体架构",
+          // collapsable: true,
+          collapsable: false,
+          children: [
+            { title: "整体架构", path: "/document/design/整体架构" },
+            { title: "线程模型", path: "/document/design/线程模型" },
+            { title: "锁的应用", path: "/document/design/锁的应用" },
+            { title: "全同步", path: "/document/design/全同步" },
+            { title: "增量同步", path: "/document/design/增量同步" },
+            {
+              title: "主从同步",
+              path: "/document/design/pika主从同步原理",
+            },
+            { title: "副本一致性", path: "/document/design/副本一致性" },
+            {
+              title: "Pika 与 Codis",
+              path: "/document/design/pika在codis中的探索",
+            },
+            { title: "快照式备份", path: "/document/design/快照式备份" },
+            {
+              title: "NoSQL 实现",
+              path: "/document/design/pika-NoSQL原理概述",
+            },
+            // {
+            //   title: "nemo存储引擎数据格式",
+            //   path: "/document/design/nemo存储引擎数据格式",
+            // },
+            {
+              title: "旧存储结构",
+              path: "/document/design/blackwidow存储引擎数据格式",
+            },
+            {
+              title: "新存储结构 Floyd",
+              path: "/document/design/Pika新存储结构Floyd",
+            },
+            { title: "Floyd 详解", path: "/document/design/floyd存储方案" },
+            {
+              title: "Pika 源码学习",
+              path: "/document/design/Pika源码学习study1",
+              collapsable: true,
+              children: [
+                {
+                  title: "Pika的通信和线程模型",
+                  path: "/document/design/Pika源码学习study1",
+                },
+                {
+                  title: "Pika的PubSub机制",
+                  path: "/document/design/Pika源码学习study2",
+                },
+                {
+                  title: "Pika的命令执行框架",
+                  path: "/document/design/Pika源码学习study3",
+                },
+                {
+                  title: "Pika和rocksdb的对接",
+                  path: "/document/design/Pika源码学习study4",
+                },
+              ],
+            },
+          ],
+        },
         {
           title: "开发文档",
           path: "/document/develop/Pikacodingstyle",
@@ -188,13 +208,14 @@ module.exports = {
           ],
         },
         {
-          title: "项目历史",
-        //   path: "/document/history/Pika_v3.5.2",
-          collapsable: true,
+          title: "更新日志",
+          //   path: "/document/history/Pika_v3.5.2",
+          // collapsable: true,
+          collapsable: false,
           children: [
             {
               title: "版本日志",
-            //   path: "/document/history/Pika_v3.5.2",
+              path: "/document/history/Pika_v3.5.2",
               collapsable: true,
               children: [
                 {
@@ -213,7 +234,7 @@ module.exports = {
             },
             {
               title: "周会纪要",
-            //   path: "/document/weekly/20231201周会纪要",
+              path: "/document/weekly/20231201周会纪要",
               collapsable: true,
               children: [
                 {
@@ -236,7 +257,16 @@ module.exports = {
             },
           ],
         },
-        { title: "社区贡献文档", path: "/document/社区贡献文档" },
+        {
+          title: "项目资讯",
+          path: "/document/Pika动态",
+          collapsable: false,
+          children: [
+            { title: "Pika 公告栏", path: "/document/Pika动态" },
+            { title: "项目支持", path: "/document/项目支持" },
+            { title: "社区贡献文档", path: "/document/社区贡献文档" },
+          ],
+        },
       ],
       "/tool/": [
         {
