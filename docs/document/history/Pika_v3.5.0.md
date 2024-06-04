@@ -1,7 +1,7 @@
 ---
 title: What's new in Pika v3.5.0
-author: --
-date: '2023-12-02'
+# author: --
+# date: '2023-12-02'
 ---
 时隔两年，Pika 社区正式发布经由社区 50 多人参与开发并在 360 生产环境验证可用的 `v3.5.0` 版本，新版本在提升性能的同时，也支持了 Codis 集群部署，BlobDB KV 分离，增加 Exporter 等新特性。
 

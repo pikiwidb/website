@@ -1,7 +1,7 @@
 ---
 title: cpp coding style
-author: --
-date: '2023-12-02'
+# author: --
+# date: '2023-12-02'
 ---
 ### c++ coding style
 
