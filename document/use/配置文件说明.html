@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>pika 配置文件说明 | Pika文档</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/pika-logo-trans.png">
+    <meta name="description" content="Pika 是一个以 RocksDB 为存储引擎的的大容量、高性能、多租户、数据可持久化的弹性 KV 数据存储系统。Pika 力求在完全兼容 Redis 协议、 继承 Redis 便捷运维设计的前提下， 通过持久化存储的方式解决 Redis 在大容量场景下的问题，如单线程易阻塞、服务器资源有限、加载数据慢、故障切换成本高。">
+    
+    <link rel="preload" href="/assets/css/0.styles.c1407cc2.css" as="style"><link rel="preload" href="/assets/js/app.376fd3df.js" as="script"><link rel="preload" href="/assets/js/7.159d5973.js" as="script"><link rel="preload" href="/assets/js/2.b83a70fc.js" as="script"><link rel="preload" href="/assets/js/1.a37d2984.js" as="script"><link rel="preload" href="/assets/js/88.0e345a96.js" as="script"><link rel="prefetch" href="/assets/js/10.86261288.js"><link rel="prefetch" href="/assets/js/100.c716f7fe.js"><link rel="prefetch" href="/assets/js/101.2262bf45.js"><link rel="prefetch" href="/assets/js/102.0bbb4c19.js"><link rel="prefetch" href="/assets/js/103.9a843c7b.js"><link rel="prefetch" href="/assets/js/104.e2436c8c.js"><link rel="prefetch" href="/assets/js/105.301b8085.js"><link rel="prefetch" href="/assets/js/11.4dc2cf3d.js"><link rel="prefetch" href="/assets/js/14.e6c1248b.js"><link rel="prefetch" href="/assets/js/15.d7e476e3.js"><link rel="prefetch" href="/assets/js/16.27389ed1.js"><link rel="prefetch" href="/assets/js/17.9ce78d6c.js"><link rel="prefetch" href="/assets/js/18.139d4c76.js"><link rel="prefetch" href="/assets/js/19.563eef3a.js"><link rel="prefetch" href="/assets/js/20.3d69dce9.js"><link rel="prefetch" href="/assets/js/21.f84a904f.js"><link rel="prefetch" href="/assets/js/22.f050c100.js"><link rel="prefetch" href="/assets/js/23.5d8c8f6e.js"><link rel="prefetch" href="/assets/js/24.c22a164e.js"><link rel="prefetch" href="/assets/js/25.9810c9cd.js"><link rel="prefetch" href="/assets/js/26.39df9f7f.js"><link rel="prefetch" href="/assets/js/27.6374d67b.js"><link rel="prefetch" href="/assets/js/28.d396601e.js"><link rel="prefetch" href="/assets/js/29.700b18b1.js"><link rel="prefetch" href="/assets/js/3.967592e5.js"><link rel="prefetch" href="/assets/js/30.fa03a236.js"><link rel="prefetch" href="/assets/js/31.33c3241f.js"><link rel="prefetch" href="/assets/js/32.8d4f630b.js"><link rel="prefetch" href="/assets/js/33.815783c4.js"><link rel="prefetch" href="/assets/js/34.84cf425f.js"><link rel="prefetch" href="/assets/js/35.958f20f7.js"><link rel="prefetch" href="/assets/js/36.990284af.js"><link rel="prefetch" href="/assets/js/37.d5f2be13.js"><link rel="prefetch" href="/assets/js/38.60cc8d15.js"><link rel="prefetch" href="/assets/js/39.042a00ce.js"><link rel="prefetch" href="/assets/js/4.8c4379fc.js"><link rel="prefetch" href="/assets/js/40.b3824d96.js"><link rel="prefetch" href="/assets/js/41.78f022cb.js"><link rel="prefetch" href="/assets/js/42.9fb809cb.js"><link rel="prefetch" href="/assets/js/43.3385bd70.js"><link rel="prefetch" href="/assets/js/44.d12ad618.js"><link rel="prefetch" href="/assets/js/45.e60c270d.js"><link rel="prefetch" href="/assets/js/46.e20152ce.js"><link rel="prefetch" href="/assets/js/47.d6cb65a5.js"><link rel="prefetch" href="/assets/js/48.52470238.js"><link rel="prefetch" href="/assets/js/49.f451f2a8.js"><link rel="prefetch" href="/assets/js/5.74053ddf.js"><link rel="prefetch" href="/assets/js/50.90ece1a9.js"><link rel="prefetch" href="/assets/js/51.1ca18f66.js"><link rel="prefetch" href="/assets/js/52.877bcb49.js"><link rel="prefetch" href="/assets/js/53.5ee65ec8.js"><link rel="prefetch" href="/assets/js/54.8cf12602.js"><link rel="prefetch" href="/assets/js/55.aba2669d.js"><link rel="prefetch" href="/assets/js/56.444dd03f.js"><link rel="prefetch" href="/assets/js/57.4ea577ec.js"><link rel="prefetch" href="/assets/js/58.331b90dc.js"><link rel="prefetch" href="/assets/js/59.d5ee43da.js"><link rel="prefetch" href="/assets/js/6.496d8e18.js"><link rel="prefetch" href="/assets/js/60.7074967b.js"><link rel="prefetch" href="/assets/js/61.5353fa0f.js"><link rel="prefetch" href="/assets/js/62.8b75aef7.js"><link rel="prefetch" href="/assets/js/63.f525c5c7.js"><link rel="prefetch" href="/assets/js/64.ba6dc866.js"><link rel="prefetch" href="/assets/js/65.1f974ac4.js"><link rel="prefetch" href="/assets/js/66.66a1e9d1.js"><link rel="prefetch" href="/assets/js/67.0f549657.js"><link rel="prefetch" href="/assets/js/68.f4905f24.js"><link rel="prefetch" href="/assets/js/69.b1389b16.js"><link rel="prefetch" href="/assets/js/70.e4504155.js"><link rel="prefetch" href="/assets/js/71.c9172b16.js"><link rel="prefetch" href="/assets/js/72.c2b30c43.js"><link rel="prefetch" href="/assets/js/73.c17d23d2.js"><link rel="prefetch" href="/assets/js/74.549bb775.js"><link rel="prefetch" href="/assets/js/75.2d4158fa.js"><link rel="prefetch" href="/assets/js/76.5ad08d67.js"><link rel="prefetch" href="/assets/js/77.b5c51986.js"><link rel="prefetch" href="/assets/js/78.0371d653.js"><link rel="prefetch" href="/assets/js/79.3d4d5ea8.js"><link rel="prefetch" href="/assets/js/8.5bd3ea21.js"><link rel="prefetch" href="/assets/js/80.ee7bbf54.js"><link rel="prefetch" href="/assets/js/81.767aabc8.js"><link rel="prefetch" href="/assets/js/82.080b1384.js"><link rel="prefetch" href="/assets/js/83.46b82278.js"><link rel="prefetch" href="/assets/js/84.eac73fcf.js"><link rel="prefetch" href="/assets/js/85.62134e76.js"><link rel="prefetch" href="/assets/js/86.c241fbe2.js"><link rel="prefetch" href="/assets/js/87.fe60a433.js"><link rel="prefetch" href="/assets/js/89.b68fe574.js"><link rel="prefetch" href="/assets/js/9.6516ca2f.js"><link rel="prefetch" href="/assets/js/90.be9773b0.js"><link rel="prefetch" href="/assets/js/91.758e1451.js"><link rel="prefetch" href="/assets/js/92.5412447a.js"><link rel="prefetch" href="/assets/js/93.a079c672.js"><link rel="prefetch" href="/assets/js/94.d3346671.js"><link rel="prefetch" href="/assets/js/95.3f1aaed4.js"><link rel="prefetch" href="/assets/js/96.2471c82e.js"><link rel="prefetch" href="/assets/js/97.fdde7be8.js"><link rel="prefetch" href="/assets/js/98.07296f93.js"><link rel="prefetch" href="/assets/js/99.f2a6f3de.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.75e564b6.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.c1407cc2.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-7dd95ae2><div data-v-7dd95ae2><div class="password-shadow password-wrapper-out" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>Pika文档</h3> <p class="description" data-v-59e6cb88>Pika 是一个以 RocksDB 为存储引擎的的大容量、高性能、多租户、数据可持久化的弹性 KV 数据存储系统。Pika 力求在完全兼容 Redis 协议、 继承 Redis 便捷运维设计的前提下， 通过持久化存储的方式解决 Redis 在大容量场景下的问题，如单线程易阻塞、服务器资源有限、加载数据慢、故障切换成本高。</p> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><span data-v-59e6cb88>Pika</span>
+          
+        <span data-v-59e6cb88>2015 - </span>
+        2024
+      </a></span></div></div> <div class="hide" data-v-7dd95ae2><header class="navbar" data-v-7dd95ae2><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/pika-smalllogo.png" alt="Pika文档" class="logo"> <span class="site-name">Pika文档</span></a> <div class="links"><!----> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="undefined"></i>
+  首页
+</a></div><div class="nav-item"><a href="/document/Pika介绍.html" class="nav-link"><i class="undefined"></i>
+  文档
+</a></div><div class="nav-item"><a href="/tool/3.2.新旧可读三类binlog转换工具.html" class="nav-link"><i class="undefined"></i>
+  工具包
+</a></div><div class="nav-item"><a href="https://github.com/OpenAtomFoundation/pika" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-7dd95ae2></div> <aside class="sidebar" data-v-7dd95ae2><div class="personal-info-wrapper" data-v-1fad0c41 data-v-7dd95ae2><!----> <h3 class="name" data-v-1fad0c41>
+    Pika
+  </h3> <div class="num" data-v-1fad0c41><div data-v-1fad0c41><h3 data-v-1fad0c41>67</h3> <h6 data-v-1fad0c41>Articles</h6></div> <div data-v-1fad0c41><h3 data-v-1fad0c41>0</h3> <h6 data-v-1fad0c41>Tags</h6></div></div> <ul class="social-links" data-v-1fad0c41></ul> <hr data-v-1fad0c41></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="undefined"></i>
+  首页
+</a></div><div class="nav-item"><a href="/document/Pika介绍.html" class="nav-link"><i class="undefined"></i>
+  文档
+</a></div><div class="nav-item"><a href="/tool/3.2.新旧可读三类binlog转换工具.html" class="nav-link"><i class="undefined"></i>
+  工具包
+</a></div><div class="nav-item"><a href="https://github.com/OpenAtomFoundation/pika" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><a href="/document/Pika介绍" class="sidebar-heading clickable"><span>概况</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/document/Pika介绍.html" class="sidebar-link">Pika介绍</a></li><li><a href="/document/use/支持的语言和客户端.html" class="sidebar-link">支持的语言和客户端</a></li><li><a href="/document/use/当前支持的Redis接口以及兼容情况.html" class="sidebar-link">支持的Redis接口</a></li><li><a href="/document/FAQ.html" class="sidebar-link">FAQ</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/document/use/安装使用" class="sidebar-heading clickable open"><span>使用与运维</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/document/use/安装使用.html" class="sidebar-link">安装使用</a></li><li><a href="/document/use/配置文件说明.html" class="active sidebar-link">配置文件</a></li><li><a href="/document/use/数据目录说明.html" class="sidebar-link">数据目录</a></li><li><a href="/document/use/info信息说明.html" class="sidebar-link">info信息</a></li><li><a href="/document/use/部分管理指令说明.html" class="sidebar-link">管理指令</a></li><li><a href="/document/use/差异化命令.html" class="sidebar-link">差异化命令</a></li><li><a href="/document/use/Pika订阅.html" class="sidebar-link">Pika订阅</a></li><li><a href="/document/use/配合sentinel实现pika自动容灾.html" class="sidebar-link">自动容灾</a></li><li><a href="/document/use/Pika多库版命令.html" class="sidebar-link">多库版命令</a></li><li><a href="/document/use/Pika分片.html" class="sidebar-link">分片教程</a></li><li><a href="/document/use/副本一致性使用说明.html" class="sidebar-link">副本一致性</a></li><li><a href="/document/use/Pika最佳实践.html" class="sidebar-link">最佳实践</a></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><a href="/document/use/如何实现3.3.6升级到3.5.x" class="sidebar-heading clickable"><span>升级指南</span> <span class="arrow right"></span></a> <!----></section></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>性能与优化</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/document/performance/3.2.x性能.html" class="sidebar-link">3.2.x性能</a></li><li><a href="/document/use/Pika内存使用.html" class="sidebar-link">Pika内存使用</a></li><li><a href="/document/performance/Redis与Pikascan性能对比.html" class="sidebar-link">Redis 与 Pika scan 性能对比</a></li><li><a href="/document/performance/Pika3.5参数优化手册.html" class="sidebar-link">Pika 3.5 参数优化手册</a></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>Pika 优化案例</span> <span class="arrow right"></span></p> <!----></section></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>设计与实现</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/document/design/整体架构.html" class="sidebar-link">整体架构</a></li><li><a href="/document/design/线程模型.html" class="sidebar-link">线程模型</a></li><li><a href="/document/design/锁的应用.html" class="sidebar-link">锁的应用</a></li><li><a href="/document/design/全同步.html" class="sidebar-link">全同步</a></li><li><a href="/document/design/增量同步.html" class="sidebar-link">增量同步</a></li><li><a href="/document/design/pika主从同步原理.html" class="sidebar-link">主从同步</a></li><li><a href="/document/design/副本一致性.html" class="sidebar-link">副本一致性</a></li><li><a href="/document/design/pika在codis中的探索.html" class="sidebar-link">Pika 与 Codis</a></li><li><a href="/document/design/快照式备份.html" class="sidebar-link">快照式备份</a></li><li><a href="/document/design/pika-NoSQL原理概述.html" class="sidebar-link">NoSQL 实现</a></li><li><a href="/document/design/blackwidow存储引擎数据格式.html" class="sidebar-link">旧存储结构</a></li><li><a href="/document/design/Pika新存储结构Floyd.html" class="sidebar-link">新存储结构 Floyd</a></li><li><a href="/document/design/floyd存储方案.html" class="sidebar-link">Floyd 详解</a></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><a href="/document/design/Pika源码学习study1" class="sidebar-heading clickable"><span>Pika 源码学习</span> <span class="arrow right"></span></a> <!----></section></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/document/develop/Pikacodingstyle" class="sidebar-heading clickable"><span>开发文档</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/document/develop/Pikacodingstyle.html" class="sidebar-link">Pika 开发规范</a></li><li><a href="/document/develop/pikacode.html" class="sidebar-link">Pika 代码梳理</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>更新日志</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><section class="sidebar-group collapsable is-sub-group depth-1"><a href="/document/history/Pika_v3.5.2" class="sidebar-heading clickable open"><span>版本日志</span> <span class="arrow down"></span></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/document/history/Pika_v3.5.2.html" class="sidebar-link">What's new in Pika v3.5.2</a></li><li><a href="/document/history/Pika_v3.5.1.html" class="sidebar-link">What's new in Pika v3.5.1</a></li><li><a href="/document/history/Pika_v3.5.0.html" class="sidebar-link">What's new in Pika v3.5.0</a></li></ul></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><a href="/document/weekly/20231201周会纪要" class="sidebar-heading clickable"><span>周会纪要</span> <span class="arrow right"></span></a> <!----></section></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/document/Pika动态" class="sidebar-heading clickable"><span>项目资讯</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/document/Pika动态.html" class="sidebar-link">Pika 公告栏</a></li><li><a href="/document/项目支持.html" class="sidebar-link">项目支持</a></li><li><a href="/document/未来规划.html" class="sidebar-link">未来规划</a></li><li><a href="/document/社区贡献文档.html" class="sidebar-link">社区贡献文档</a></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>pika 配置文件说明</h3> <!----> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><span data-v-59e6cb88>Pika</span>
+          
+        <span data-v-59e6cb88>2015 - </span>
+        2024
+      </a></span></div></div> <div data-v-7dd95ae2><div data-v-7dd95ae2><main class="page" style="padding-right:0;"><section style="display:;"><div class="page-title"><h1 class="title">pika 配置文件说明</h1> <div data-v-8a445198><i class="iconfont reco-account" data-v-8a445198><span data-v-8a445198>Pika</span></i> <!----> <!----> <!----></div></div> <div class="theme-reco-content content__default"><div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token comment"># pika 端口</span>
+<span class="token key atrule">port</span> <span class="token punctuation">:</span> <span class="token number">9221</span>
+
+<span class="token comment"># pika是多线程的, 该参数能够配置pika的线程数量, 不建议配置值超过部署服务器的CPU核心数量 </span>
+<span class="token key atrule">thread-num</span> <span class="token punctuation">:</span> <span class="token number">1</span>
+
+<span class="token comment"># 处理命令用户请求命令线程池的大小</span>
+<span class="token key atrule">thread-pool-size</span> <span class="token punctuation">:</span> <span class="token number">8</span>
+
+<span class="token comment"># sync 主从同步时候从库执行主库传递过来命令的线程数量</span>
+<span class="token key atrule">sync-thread-num</span> <span class="token punctuation">:</span> <span class="token number">6</span>
+
+<span class="token comment"># sync 处理线程的任务队列大小, 不建议修改</span>
+<span class="token key atrule">sync-buffer-size</span> <span class="token punctuation">:</span> <span class="token number">10</span>
+
+<span class="token comment"># Pika日志目录, 用于存放INFO, WARNING, ERROR日志以及用于同步的binlog(write2fine)文件</span>
+<span class="token key atrule">log-path</span> <span class="token punctuation">:</span> ./log/
+
+<span class="token comment"># Pika数据目录</span>
+<span class="token key atrule">db-path</span> <span class="token punctuation">:</span> ./db/
+
+<span class="token comment"># Pika 底层单个rocksdb单个memtable的大小, 设置越大写入性能越好但会在buffer刷盘时带来更大的IO负载, 请依据使用场景合理配置</span>
+<span class="token punctuation">[</span>RocksDb<span class="token punctuation">-</span>Tuning<span class="token punctuation">-</span>Guide<span class="token punctuation">]</span>(https<span class="token punctuation">:</span>//github.com/facebook/rocksdb/wiki/RocksDB<span class="token punctuation">-</span>Tuning<span class="token punctuation">-</span>Guide)
+<span class="token key atrule">write-buffer-size</span> <span class="token punctuation">:</span> <span class="token number">268435456</span>
+
+<span class="token comment"># 在内存中为 db 中的一个列族建立的写入缓冲区 memtables 的最大数量,默认和最小数量为 2 </span>
+<span class="token comment"># 如果这个配置超过3，写入的性能会变慢</span>
+<span class="token key atrule">max-write-buffer-num</span><span class="token punctuation">:</span> <span class="token number">2</span>
+
+<span class="token comment"># Pika 的连接超时时间配置, 单位为秒, 当连接无请求时(进入sleep状态)开始从配置时间倒计时, 当倒计时为0时pika将强行</span>
+<span class="token comment"># 断开该连接, 可以通过合理配置该参数避免可能出现的pika连接数用尽问题, 该参数默认值为60</span>
+<span class="token key atrule">timeout</span> <span class="token punctuation">:</span> <span class="token number">60</span>
+
+<span class="token comment"># 密码管理员密码, 默认为空, 如果该参数与下方的userpass参数相同(包括同时为空), 则userpass参数将自动失效, 所有用户均为</span>
+<span class="token comment"># 管理员身份不受userblacklist参数的限制</span>
+<span class="token key atrule">requirepass</span> <span class="token punctuation">:</span> password
+
+<span class="token comment"># 同步验证密码, 用于slave(从库)连接master(主库)请求同步时进行验证, 该参数需要与master(主库)的requirepass一致</span>
+<span class="token key atrule">masterauth</span> <span class="token punctuation">:</span>
+
+<span class="token comment"># 用户密码, 默认为空, 如果该参数与上方的userpass参数相同(包括同时为空), 则本参数将自动失效, 所有用户均为管理员身份不</span>
+<span class="token comment"># 受userblacklist参数的限制</span>
+<span class="token key atrule">userpass</span> <span class="token punctuation">:</span> userpass
+ 
+<span class="token comment"># 指令黑名单, 能够限制通过userpass登录的用户, 这些用户将不能使用黑名单中的指令, 指令之间使用&quot;,&quot;隔开, 默认为空</span>
+<span class="token comment"># 建议将高风险命令配置在该参数中</span>
+<span class="token key atrule">userblacklist</span> <span class="token punctuation">:</span> FLUSHALL<span class="token punctuation">,</span> SHUTDOWN<span class="token punctuation">,</span> KEYS<span class="token punctuation">,</span> CONFIG
+
+<span class="token comment"># 分为经典模式和分片模式，[classic | sharding]，经典模式中支持多db的配置</span>
+<span class="token key atrule">instance-mode</span> <span class="token punctuation">:</span> classic
+
+<span class="token comment"># 经典模式下下指定db的数量，使用方式和redis一致</span>
+<span class="token key atrule">databases</span> <span class="token punctuation">:</span> <span class="token number">1</span>
+
+<span class="token comment"># 分片模式下每一个table中默认的slot数量</span>
+default<span class="token punctuation">-</span>slot<span class="token punctuation">-</span>num：16
+
+<span class="token comment"># 定义一个副本组又多少个从副本，目前支持的配置选项范围[0, 1, 2, 3, 4], 0代表不开启此功能</span>
+<span class="token key atrule">replication-num</span> <span class="token punctuation">:</span> <span class="token number">0</span>
+
+<span class="token comment"># 定义在返回客户端之前主副本收到多少个从副本的ACK反馈信息。目前可以配置的选项范围[0, ...replicaiton-num]，0代表不开启此功能。</span>
+<span class="token key atrule">consensus-level</span> <span class="token punctuation">:</span> <span class="token number">0</span>
+
+<span class="token comment"># Pika的dump文件名称前缀, bgsave后生成的文件将以该前缀命名</span>
+<span class="token key atrule">dump-prefix</span> <span class="token punctuation">:</span> backup<span class="token punctuation">-</span>
+ 
+<span class="token comment"># 守护进程模式  [yes | no]</span>
+<span class="token key atrule">daemonize</span> <span class="token punctuation">:</span> yes
+ 
+<span class="token comment"># slotmigrate  [yes | no], pika3.0.0暂不支持该参数</span>
+<span class="token comment">#slotmigrate : no</span>
+
+<span class="token comment"># Pika dump目录设置, bgsave后生成的文件将存放在该目录中</span>
+<span class="token key atrule">dump-path</span> <span class="token punctuation">:</span> /data1/pika9001/dump/
+
+<span class="token comment"># dump目录过期时间, 单位为天, 默认为0即永不过期</span>
+<span class="token key atrule">dump-expire</span><span class="token punctuation">:</span> <span class="token number">0</span>
+
+<span class="token comment"># pidfile Path pid文件目录</span>
+<span class="token key atrule">pidfile</span> <span class="token punctuation">:</span> /data1/pika9001/pid/9001.pid
+ 
+<span class="token comment"># pika最大连接数配置参数</span>
+<span class="token key atrule">maxclients</span> <span class="token punctuation">:</span> <span class="token number">20000</span>
+ 
+<span class="token comment"># rocks-db的sst文件体积, sst文件是层级的, 文件越小, 速度越快, 合并代价越低, 但文件数量就会超多, 而文件越大, 速度相对变慢, 合并代价大, 但文件数量会很少, 默认是 20M</span>
+<span class="token key atrule">target-file-size-base</span> <span class="token punctuation">:</span> <span class="token number">20971520</span>
+
+<span class="token comment"># binlog(write2file)文件保留时间, 7天, 最小为1, 超过7天的文件会被自动清理</span>
+<span class="token key atrule">expire-logs-days</span> <span class="token punctuation">:</span> <span class="token number">7</span>
+ 
+<span class="token comment"># binlog(write2file)文件最大数量, 200个, 最小为10, 超过200个就开始自动清理, 始终保留200个</span>
+<span class="token key atrule">expire-logs-nums</span> <span class="token punctuation">:</span> <span class="token number">200</span>
+ 
+<span class="token comment"># root用户连接保证数量：2个, 即时Max Connection用完, 该参数也能确保本地（127.0.0.1）有2个连接可以同来登陆pika</span>
+<span class="token key atrule">root-connection-num</span> <span class="token punctuation">:</span> <span class="token number">2</span>
+ 
+<span class="token comment"># 慢日志记录时间, 单位为微秒, pika的慢日志记录在pika-ERROR.log中, pika没有类似redis slow log的慢日志提取api</span>
+<span class="token key atrule">slowlog-log-slower-than</span> <span class="token punctuation">:</span> <span class="token number">10000</span>
+
+<span class="token comment"># slave是否是只读状态(yes/no, 1/0)</span>
+<span class="token comment"># slave-read-only : 0</span>
+
+<span class="token comment"># Pika db 同步路径配置参数</span>
+<span class="token key atrule">db-sync-path</span> <span class="token punctuation">:</span> ./dbsync/
+
+<span class="token comment"># 该参数能够控制全量同步时的传输速度, 合理配置该参数能够避免网卡被用尽, 该参数范围为1~1024, 意为:1MB/s~1024MB/s，当该参数</span>
+<span class="token comment"># 被配置为小于0或大于1024时, 该参数会被自动配置为1024</span>
+<span class="token key atrule">db-sync-speed</span> <span class="token punctuation">:</span> <span class="token punctuation">-</span>1 (1024MB/s)
+
+<span class="token comment"># 指定网卡</span>
+<span class="token comment"># network-interface : eth1</span>
+
+<span class="token comment"># 同步参数配置, 适用于从库节点(slave), 该参数格式为ip:port, 例如192.168.1.2:6666, 启动后该示例会自动向192.168.1.2的</span>
+<span class="token comment"># 6666端口发送同步请求</span>
+<span class="token comment"># slaveof : master-ip:master-port</span>
+
+<span class="token comment"># 配置双主或Hub需要的server id, 不使用双主或Hub请忽略该参数</span>
+<span class="token key atrule">server-id</span> <span class="token punctuation">:</span> <span class="token number">1</span>
+
+<span class="token comment"># 双主配置, 不使用双主请忽略以下配置</span>
+<span class="token key atrule">double-master-ip</span> <span class="token punctuation">:</span>	双主对端Ip
+<span class="token key atrule">double-master-port</span> <span class="token punctuation">:</span>	双主对端Port
+<span class="token key atrule">double-master-server-id</span> <span class="token punctuation">:</span>	双主对端server id
+ 
+<span class="token comment"># 自动全量compact, 通过配置的参数每天定时触发一次自动全量compact, 特别适合存在多数据结构大量过期、删除、key名称复用的场景</span>
+<span class="token comment"># 参数格式为:&quot;启动时间(小时)-结束时间(小时)/磁盘空余空间百分比&quot;, 例如你需要配置一个每天在凌晨3点~4点之间自动compact的任务</span>
+<span class="token comment"># 同时该任务仅仅在磁盘空余空间不低于30%的时候执行, 那么应配置为:03-04/30, 该参数默认为空</span>
+<span class="token key atrule">compact-cron</span> <span class="token punctuation">:</span> 
+
+<span class="token comment"># 自动全量compact, 该参与与compact-cron的区别为, compact-cron每天仅在指定时间段执行, 而compact-interval则以配置时间为周期</span>
+<span class="token comment"># 循环执行, 例如你需要配置一个每4小时执行一次的自动compact任务, 同时该任务仅仅在磁盘空余空间不低于30%的时候执行, 那么该参</span>
+<span class="token comment"># 数应配置为:4/30, 该参数默认为空</span>
+<span class="token key atrule">compact-interval</span> <span class="token punctuation">:</span>
+
+<span class="token comment"># 从库实例权重设置, 仅配合哨兵使用,无其它功能, 权重低的slave会优先选举为主库, 该参数默认为0(不参与选举)</span>
+<span class="token key atrule">slave-priority</span> <span class="token punctuation">:</span> 
+
+<span class="token comment"># 该参数仅适用于pika跨版本同步时不同版本的binlog能够兼容并成功解析, 该参数可配置为[new | old]</span>
+<span class="token comment"># 当该参数被配置为new时, 该实例仅能作为3.0.0及以上版本pika的从库, 与pika2.3.3~2.3.5不兼容</span>
+<span class="token comment"># 当该参数被配置为old时, 该时候仅能作为2.3.3~2.3.5版本pika的从库, 与pika3.0.0及以上版本不兼容</span>
+<span class="token comment"># 该参数默认值为new, 该参数可在没有配置同步关系的时候通过config set动态调整, 一旦配置了同步关系则不可动态修改</span>
+<span class="token comment"># 需要先执行slaveof no one关闭同步配置, 之后即可通过config set动态修改</span>
+<span class="token key atrule">identify-binlog-type</span> <span class="token punctuation">:</span> new
+
+<span class="token comment"># 主从同步流量控制的的窗口，主从高延迟情形下可以通过提高该参数提高同步性能。默认值9000最大值90000。</span>
+<span class="token key atrule">sync-window-size</span> <span class="token punctuation">:</span> <span class="token number">9000</span>
+
+<span class="token comment"># 处理客户端连接请求的最大缓存大小，可配置的数值为67108864(64MB) 或 268435456(256MB) 或 536870912(512MB)</span>
+<span class="token comment"># 默认是268435456(256MB)，需要注意的是主从的配置需要一致。</span>
+<span class="token comment"># 单条命令超过此buffer大小，服务端会自动关闭与客户端的连接。</span>
+<span class="token key atrule">max-conn-rbuf-size</span> <span class="token punctuation">:</span> <span class="token number">268435456</span>
+
+<span class="token comment">###################</span>
+<span class="token comment">#Critical Settings#</span>
+<span class="token comment">#    危险参数      #</span>
+<span class="token comment">###################</span>
+<span class="token comment"># write2file文件体积, 默认为100MB, 一旦启动不可修改,  limited in [1K, 2G]</span>
+<span class="token key atrule">binlog-file-size</span> <span class="token punctuation">:</span> <span class="token number">104857600</span>
+
+<span class="token comment"># 压缩方式[snappy, zlib, lz4, zstd]默认为snappy, 一旦启动不可修改</span>
+<span class="token comment"># 官方发布的二进制提供默认的snaapy的静态连接。如果需要其他压缩方式请自行下载相应静态库并进行编译。</span>
+<span class="token key atrule">compression</span> <span class="token punctuation">:</span> snappy
+
+<span class="token comment"># 指定后台flush线程数量, 默认为1, 范围为[1, 4]</span>
+<span class="token key atrule">max-background-flushes</span> <span class="token punctuation">:</span> <span class="token number">1</span>
+
+<span class="token comment"># 指定后台压缩线程数量, 默认为1, 范围为[1, 4]</span>
+<span class="token key atrule">max-background-compactions</span> <span class="token punctuation">:</span> <span class="token number">1</span>
+
+<span class="token comment"># DB可以使用的打开文件的数量, 默认为5000</span>
+<span class="token key atrule">max-cache-files</span> <span class="token punctuation">:</span> <span class="token number">5000</span>
+
+<span class="token comment"># pika实例所拥有的rocksdb实例使用的memtable大小上限，如果rocksdb实际使用超过这个数值，下一次写入会造成刷盘</span>
+<span class="token punctuation">[</span>Rocksdb<span class="token punctuation">-</span>Basic<span class="token punctuation">-</span>Tuning<span class="token punctuation">]</span>(https<span class="token punctuation">:</span>//github.com/facebook/rocksdb/wiki/Setup<span class="token punctuation">-</span>Options<span class="token punctuation">-</span>and<span class="token punctuation">-</span>Basic<span class="token punctuation">-</span>Tuning)
+<span class="token key atrule">max-write-buffer-size</span> <span class="token punctuation">:</span> <span class="token number">10737418240</span>
+
+<span class="token comment"># 限制命令返回数据的大小，应对类似于keys *等命令，返回值过大将内存耗尽。</span>
+<span class="token key atrule">max-client-response-size</span> <span class="token punctuation">:</span> <span class="token number">1073741824</span>
+
+<span class="token comment"># pika引擎中层级因子, 用于控制每个层级与上一层级总容量的倍数关系, 默认为10(倍), 允许调整为5(倍) </span>
+<span class="token key atrule">max-bytes-for-level-multiplier</span> <span class="token punctuation">:</span> <span class="token number">10</span>
+
+<span class="token comment"># 统计对于key的操作次数，对于操作频繁的一部分key做小规模compaction</span>
+<span class="token comment"># max-cache-statistic-keys 为受监控key的数量，配置为0代表关闭此功能</span>
+<span class="token key atrule">max-cache-statistic-keys</span> <span class="token punctuation">:</span> <span class="token number">0</span>
+
+<span class="token comment"># 如果开启小规模compaction，如果对于key操作次数超过small-compaction-threshold上限，那么对该key进行compaction</span>
+<span class="token key atrule">small-compaction-threshold</span> <span class="token punctuation">:</span> <span class="token number">5000</span>
+
+<span class="token comment"># LRU 缓存，多个 RocksDB 可以共享，也可以单独拥有。这个由 share-block-cache 参数决定</span>
+<span class="token comment"># 参考文档：http://alexstocks.github.io/html/rocksdb.html</span>
+<span class="token key atrule">block-cache</span><span class="token punctuation">:</span> <span class="token number">8388608</span>
+
+<span class="token comment"># 块缓存是否在 RocksDB 实例之间共享，默认是每个独享</span>
+<span class="token key atrule">share-block-cache</span><span class="token punctuation">:</span> no
+
+<span class="token comment"># arena内存分配中一个内存块的大小；如果为0则自动计算出合适的值</span>
+<span class="token key atrule">arena-block-size</span><span class="token punctuation">:</span> <span class="token number">33554432</span>
+</code></pre></div></div></section> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/document/use/安装使用.html" class="prev">
+          安装使用
+        </a></span> <span class="next"><a href="/document/use/数据目录说明.html">
+          数据目录
+        </a></span></p></div> <div class="comments-wrapper"><!----></div></main></div> <!----></div> <ul class="sub-sidebar sub-sidebar-wrapper" style="width:0;" data-v-b57cc07c data-v-7dd95ae2></ul></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><!----></div></div>
+    <script src="/assets/js/app.376fd3df.js" defer></script><script src="/assets/js/7.159d5973.js" defer></script><script src="/assets/js/2.b83a70fc.js" defer></script><script src="/assets/js/1.a37d2984.js" defer></script><script src="/assets/js/88.0e345a96.js" defer></script>
+  </body>
+</html>
