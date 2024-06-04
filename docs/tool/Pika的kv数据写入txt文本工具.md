@@ -5,7 +5,7 @@ date: '2023-12-02'
 ---
 ## 名称：
 
-pika_to_txt
+pika\_to\_txt
 
 ## 位置：
 
@@ -17,7 +17,7 @@ pika_to_txt
 
 ## txt格式:
 
-#### [key_length][key][value_length][value]
+#### \[key\_length\]\[key\]\[value\_length\]\[value\]
 
 注意: 长度使用`uint32_t`
 

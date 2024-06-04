@@ -41,7 +41,7 @@ pika\_port
 2. 如果需要全同步，则在接收到master的db之后，启动migrator和sender线程将db里面的数据发送给Pika、Redis
 3. 启动Slaveping线程定期给主库发送心跳，完成建立主从关系
 
-### binlog_receiver线程
+### binlog\_receiver线程
 
 1. 接收主库发送过来的binlog并且将其解析成redis命令
 2. 将redis命令转发给Pika、Redis

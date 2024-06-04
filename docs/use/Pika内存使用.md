@@ -8,7 +8,7 @@ date: '2023-12-02'
 1. rocksdb 内存占用
 2. pika 内存占用(tcmalloc 占用)
 
-#### [](https://github.com/OpenAtomFoundation/pika/wiki/Pika-Memory-Usage#1-rocksdb-%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8)1\. rocksdb 内存占用
+#### 1\. rocksdb 内存占用
 
 命令行命令 info data
 
@@ -28,7 +28,7 @@ max-cache-files => db\_tablereader\_usage
 
 [https://github.com/facebook/rocksdb/wiki/Memory-usage-in-RocksDB](https://github.com/facebook/rocksdb/wiki/Memory-usage-in-RocksDB)
 
-#### [](https://github.com/OpenAtomFoundation/pika/wiki/Pika-Memory-Usage#2-pika-%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8)2\. pika 内存占用
+#### 2\. pika 内存占用
 
 如果使用tcmalloc，绝大多数情况下是tcmalloc暂时占用内存。
 

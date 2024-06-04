@@ -5,7 +5,7 @@ date: '2023-12-02'
 ---
 pika当前支持的redis接口 pika支持redis五种类型（分别为string、hash、list、set、zset）的接口，先列出其对redis的五种数据结构兼容统计。
 
-#### [统计所用的标记含义如下：](https://github.com/OpenAtomFoundation/pika/wiki/pika-%E6%94%AF%E6%8C%81%E7%9A%84redis%E6%8E%A5%E5%8F%A3%E5%8F%8A%E5%85%BC%E5%AE%B9%E6%83%85%E5%86%B5#%E7%BB%9F%E8%AE%A1%E6%89%80%E7%94%A8%E7%9A%84%E6%A0%87%E8%AE%B0%E5%90%AB%E4%B9%89%E5%A6%82%E4%B8%8B)
+#### 统计所用的标记含义如下：
 
 | 图标 | 含义 |
 | :-: | :-: |
@@ -15,7 +15,7 @@ pika当前支持的redis接口 pika支持redis五种类型（分别为string、h
 
 ---
 
-## [Keys](https://github.com/OpenAtomFoundation/pika/wiki/pika-%E6%94%AF%E6%8C%81%E7%9A%84redis%E6%8E%A5%E5%8F%A3%E5%8F%8A%E5%85%BC%E5%AE%B9%E6%83%85%E5%86%B5#keys)
+## Keys
 
 | 接口 | DEL | DUMP | EXISTS | EXPIRE | EXPIREAT | KEYS | MIGRATE | MOVE | OBJECT |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
@@ -38,7 +38,7 @@ pika当前支持的redis接口 pika支持redis五种类型（分别为string、h
 - KEYS: KEYS命令支持参数支持扫描指定类型的数据，用法如 "keys \* \[string, hash, list, zset, set\]"
     
 
-## [Strings](https://github.com/OpenAtomFoundation/pika/wiki/pika-%E6%94%AF%E6%8C%81%E7%9A%84redis%E6%8E%A5%E5%8F%A3%E5%8F%8A%E5%85%BC%E5%AE%B9%E6%83%85%E5%86%B5#strings)
+## Strings
 
 | 接口 | APPEND | BITCOUNT | BITFIELD | BITOP | BITPOS | DECR | DECRBY | GET | GETBIT |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
@@ -52,7 +52,7 @@ pika当前支持的redis接口 pika支持redis五种类型（分别为string、h
 
 - BIT操作：与Redis不同，Pika的bit操作范围为2^21， bitmap的最大值为256Kb。redis setbit 只是对key的value值更新。但是pika使用rocksdb作为存储引擎，rocksdb只会新写入数据并且只在compact的时候才从硬盘删除旧数据。如果pika的bit操作范围和redis一致都是2^32的话，那么有可能每次对同一个key setbit时，rocksdb都会存储一个512M大小的value。这会产生 严重的性能隐患。因此我们对pika的bit操作范围作了取舍。
 
-## [Hashes](https://github.com/OpenAtomFoundation/pika/wiki/pika-%E6%94%AF%E6%8C%81%E7%9A%84redis%E6%8E%A5%E5%8F%A3%E5%8F%8A%E5%85%BC%E5%AE%B9%E6%83%85%E5%86%B5#hashes)
+## Hashes
 
 | 接口 | HDEL | HEXISTS | HGET | HGETALL | HINCRBY | HINCRBYFLOAT | HKEYS | HLEN | HMGET | HMSET |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
@@ -64,7 +64,7 @@ pika当前支持的redis接口 pika支持redis五种类型（分别为string、h
 
 - HSET操作：暂不支持单条命令设置多个field value，如有需求请用HMSET
 
-## [Lists](https://github.com/OpenAtomFoundation/pika/wiki/pika-%E6%94%AF%E6%8C%81%E7%9A%84redis%E6%8E%A5%E5%8F%A3%E5%8F%8A%E5%85%BC%E5%AE%B9%E6%83%85%E5%86%B5#lists)
+## Lists
 
 | 接口 | LINDEX | LINSERT | LLEN | LPOP | LPUSH | LPUSHX | LRANGE | LREM | LSET | LTRIM |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
@@ -72,7 +72,7 @@ pika当前支持的redis接口 pika支持redis五种类型（分别为string、h
 | 接口 | RPOP | RPOPLPUSH | RPUSH | RPUSHX | BLPOP | BRPOP | BRPOPLPUSH |  |  |  |
 | 状态 | o | o | o | o | o | o | x |  |  |  |
 
-## [Sets](https://github.com/OpenAtomFoundation/pika/wiki/pika-%E6%94%AF%E6%8C%81%E7%9A%84redis%E6%8E%A5%E5%8F%A3%E5%8F%8A%E5%85%BC%E5%AE%B9%E6%83%85%E5%86%B5#sets)
+## Sets
 
 | 接口 | SADD | SCARD | SDIFF | SDIFFSTORE | SINTER | SINTERSTORE | SISMEMBER | SMEMBERS | SMOVE | SPOP |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
@@ -84,7 +84,7 @@ pika当前支持的redis接口 pika支持redis五种类型（分别为string、h
 
 - SRANDMEMBER：时间复杂度O( n )，耗时较多
 
-## [Sorted Sets](https://github.com/OpenAtomFoundation/pika/wiki/pika-%E6%94%AF%E6%8C%81%E7%9A%84redis%E6%8E%A5%E5%8F%A3%E5%8F%8A%E5%85%BC%E5%AE%B9%E6%83%85%E5%86%B5#sorted-sets)
+## Sorted Sets
 
 | 接口 | ZADD | ZCARD | ZCOUNT | ZINCRBY | ZRANGE | ZRANGEBYSCORE | ZRANK | ZREM | ZREMRANGEBYRANK | ZREMRANGEBYSCORE |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
@@ -96,7 +96,7 @@ pika当前支持的redis接口 pika支持redis五种类型（分别为string、h
 
 - ZADD 的选项 \[NX|XX\] \[CH\] \[INCR\] 暂不支持
 
-## [HyperLogLog](https://github.com/OpenAtomFoundation/pika/wiki/pika-%E6%94%AF%E6%8C%81%E7%9A%84redis%E6%8E%A5%E5%8F%A3%E5%8F%8A%E5%85%BC%E5%AE%B9%E6%83%85%E5%86%B5#hyperloglog)
+## HyperLogLog
 
 | 接口 | PFADD | PFCOUNT | PFMERGE |
 | :-: | :-: | :-: | :-: |
@@ -106,19 +106,19 @@ pika当前支持的redis接口 pika支持redis五种类型（分别为string、h
 
 - 50w以内误差均小于1%, 100w以内误差小于3%, 但付出了时间代价.
 
-## [GEO](https://github.com/OpenAtomFoundation/pika/wiki/pika-%E6%94%AF%E6%8C%81%E7%9A%84redis%E6%8E%A5%E5%8F%A3%E5%8F%8A%E5%85%BC%E5%AE%B9%E6%83%85%E5%86%B5#geo)
+## GEO
 
 | 接口 | GEOADD | GEODIST | GEOHASH | GEOPOS | GEORADIUS | GEORADIUSBYMEMBER |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
 | 状态 | o | o | o | o | o | o |
 
-## [BitMap](https://github.com/OpenAtomFoundation/pika/wiki/pika-%E6%94%AF%E6%8C%81%E7%9A%84redis%E6%8E%A5%E5%8F%A3%E5%8F%8A%E5%85%BC%E5%AE%B9%E6%83%85%E5%86%B5#bitmap)
+## BitMap
 
 | 接口 | SETBIT | GETBIT | BITPOS | BITOP | BITCOUNT |
 | :-: | :-: | :-: | :-: | :-: | :-: |
 | 状态 | o | o | o | o | o |
 
-## [Pub/Sub](https://github.com/OpenAtomFoundation/pika/wiki/pika-%E6%94%AF%E6%8C%81%E7%9A%84redis%E6%8E%A5%E5%8F%A3%E5%8F%8A%E5%85%BC%E5%AE%B9%E6%83%85%E5%86%B5#pubsub)
+## Pub/Sub
 
 | 接口 | PSUBSCRIBE | PUBSUB | PUBLISH | PUNSUBSCRIBE | SUBSCRIBE | UNSUBSCRIBE |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
@@ -128,7 +128,7 @@ pika当前支持的redis接口 pika支持redis五种类型（分别为string、h
 
 - 暂不支持keyspace notifications
 
-## [管理命令（这里仅列出pika兼容的）](https://github.com/OpenAtomFoundation/pika/wiki/pika-%E6%94%AF%E6%8C%81%E7%9A%84redis%E6%8E%A5%E5%8F%A3%E5%8F%8A%E5%85%BC%E5%AE%B9%E6%83%85%E5%86%B5#%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4%E8%BF%99%E9%87%8C%E4%BB%85%E5%88%97%E5%87%BApika%E5%85%BC%E5%AE%B9%E7%9A%84)
+## 管理命令（这里仅列出pika兼容的）
 
 | 接口 | INFO | CONFIG | CLIENT | PING | BGSAVE | SHUTDOWN | SELECT | TYPE | HELLO |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
@@ -149,7 +149,7 @@ pika当前支持的redis接口 pika支持redis五种类型（分别为string、h
 
 ---
 
-## [重要说明](https://github.com/OpenAtomFoundation/pika/wiki/pika-%E6%94%AF%E6%8C%81%E7%9A%84redis%E6%8E%A5%E5%8F%A3%E5%8F%8A%E5%85%BC%E5%AE%B9%E6%83%85%E5%86%B5#%E9%87%8D%E8%A6%81%E8%AF%B4%E6%98%8E)
+## 重要说明
 
 - 重名问题：由于pika每个类型独立运作， 所以允许重名。例如在key abc在string中存在的时候也同样允许在hash中存在，一个key最多重名5次（5大类型），但在同一接口中是无法重名的。所以建议在使用的时候对于不同类型不要使用完全相同的key;
     

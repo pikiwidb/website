@@ -3,7 +3,7 @@ title: What's new in Pika v3.5.1
 author: --
 date: '2023-12-02'
 ---
-# [What's new in Pika v3.5.1](https://my.oschina.net/dubbogo/blog/10114890)
+# 
 
 
 

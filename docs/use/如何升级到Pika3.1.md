@@ -5,22 +5,22 @@ date: '2023-12-02'
 ---
 # 迁移工具介绍
 
-## [manifest生成工具](https://github.com/OpenAtomFoundation/pika/wiki/%e5%a6%82%e4%bd%95%e5%8d%87%e7%ba%a7%e5%88%b0Pika3.1%e6%88%963.2#manifest%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7)
+## manifest生成工具
 
 - 工具路径`./tools/manifest_generator`
 - 工具作用：用来进行manifest的生成
 
-## [增量同步工具](https://github.com/OpenAtomFoundation/pika/wiki/%e5%a6%82%e4%bd%95%e5%8d%87%e7%ba%a7%e5%88%b0Pika3.1%e6%88%963.2#%E5%A2%9E%E9%87%8F%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7)
+## 增量同步工具
 
 - 工具路径`./tools/pika_port`
 - 工具作用：用来进行pika3.0与新pika3.1或pika3.2之间的数据同步
 
-# [说明](https://github.com/OpenAtomFoundation/pika/wiki/%e5%a6%82%e4%bd%95%e5%8d%87%e7%ba%a7%e5%88%b0Pika3.1%e6%88%963.2#%E8%AF%B4%E6%98%8E)
+# 说明
 
 1. 为了提高pika的单机性能，自Pika3.1开始，我们在Pika中实现了redis的多库模式，正是因为如此底层存储db以及log的目录发生了一些变化，如果老版本pika的db路径是`/data/pika9221/db`，那么单db数据都会存在这个目录下面，但是由于我们目前支持了多db，目录层级比原先多了一层，所以迁移的时候我们需要手动将原先单db的数据挪到`/data/pika9221/db/db0`当中
 2. 为了提高多DB的同步效率，在新版本Pika中我们使用PB协议进行实例间通信，这意味着新版本的Pika不能直接与老版本的Pika直接建立主从，所以我们需要[pika\_port](https://github.com/OpenAtomFoundation/pika/wiki/https%3a%2f%2fgithub.com%2fQihoo360%2fpika%2fwiki%2fpika%e5%88%b0pika%e3%80%81redis%e8%bf%81%e7%a7%bb%e5%b7%a5%e5%85%b7)将老版本Pika的数据增量同步到新版本Pika上
 
-# [升级步骤](https://github.com/OpenAtomFoundation/pika/wiki/%e5%a6%82%e4%bd%95%e5%8d%87%e7%ba%a7%e5%88%b0Pika3.1%e6%88%963.2#%E5%8D%87%E7%BA%A7%E6%AD%A5%E9%AA%A4)
+# 升级步骤
 
 1. 根据自己的场景配置新版本Pika的配置文件(databases项用于指定开启几个db)
 2. 登录主库执行bgsave操作，然后将dump下来的数据拷贝到新版本pika配置文件中db-path目录的下一级目录db0中
@@ -59,7 +59,7 @@ date: '2023-12-02'
 7. 当我们与pika3.1或pika3.2进行增量同步的时候，可以对pika3.1或pika3.2进行从库添加操作，这样的话在从库都同步完成之后，我们在源库上查看lag如果为0 或者是很小的时候我们可以将整个集群进行替换，把原来的集群替换掉，把新集群上线
     
 
-# [注意事项](https://github.com/OpenAtomFoundation/pika/wiki/%e5%a6%82%e4%bd%95%e5%8d%87%e7%ba%a7%e5%88%b0Pika3.1%e6%88%963.2#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9)
+# 注意事项
 
 1. 当我们在拷贝dump目录的时候，最好先mv改名字，然后在进行远程同步，这可以防止dump目录在拷贝的时候覆盖而造成数据不一致的结果
 2. 在我们使用manifest\_generator工具的时候，他需要dump时候生成的info文件，所以在拷贝dump目录的时候，要保证info文件也移动到指定的目录底下

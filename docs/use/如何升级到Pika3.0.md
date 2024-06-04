@@ -12,7 +12,7 @@ pika在2.3.3版本时为了确保同步的可靠性,增加了server-id验证功�
 - 如果你的pika版本>=2.3.3那么请从下列步骤5开始, 否则请从步骤1开始
 - 如果你的pika非集群模式(单点), 且无法停机升级, 请在操作前为该pika补充一个从库
 
-## [升级步骤:](https://github.com/OpenAtomFoundation/pika/wiki/%E5%A6%82%E4%BD%95%E5%8D%87%E7%BA%A7%E5%88%B0Pika3.0#%E5%8D%87%E7%BA%A7%E6%AD%A5%E9%AA%A4)
+## 升级步骤:
 
 1. 为pika 从库的配置文件增加masterauth参数, 注意, 该参数的值需要与主库的requirepass参数配置相同, 否则会造成验证失败
 2. 使用新的(建议使用2.3.6)pika bin目录覆盖低版本目录
@@ -55,7 +55,7 @@ c.在从库断开(slaveof no one)与主库的同步, 完成整个切主操作
 12. 通过config set将identify-binlog-type配置为new并修改配置文件中该参数的值为new, 如果config set报错那么意味着你忽略了上个步骤中的c步骤
 13. 此时整个升级已完成, 你获得了一个单点的pika3.0.16实例, 若需补充从库, 你可新建一个新的空的pika3.0.16或更新版本的pika实例并通同slaveof ip:port force命令来非常简单的实现主从集群的创建, 该命令能够完整同步数据后自动转换为增量同步
 
-## [注意事项：](https://github.com/OpenAtomFoundation/pika/wiki/%E5%A6%82%E4%BD%95%E5%8D%87%E7%BA%A7%E5%88%B0Pika3.0#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9)
+## 注意事项：
 
 - 由于Pika3.0的引擎在数据存储格式上做了重新的设计，新引擎比老引擎更加节省空间，所以升级完毕后，发现Pika3.0的db要比原来小这是正常的现象
 - 在数据量比较大的情况下，使用nemo\_to\_blackwidow工具将Nemo格式的db转换成blackwidow格式的db可能花费的时间比较久，在转换的过程中可能主库当时dump时对应的位置的binlog会被清除掉，导致最后无法进行增量同步，所以在升级之前要将原先的主库的binlog生命周期设置得长一些(修改expire-logs-days和expire-logs-nums配置项)

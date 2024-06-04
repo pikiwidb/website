@@ -68,7 +68,7 @@ void* PikaAuxiliaryThread::ThreadMain() {
 }
 ```
 
-#### RunSyncSlavePartitionStateMachine-[状态机](https://so.csdn.net/so/search?q=%E7%8A%B6%E6%80%81%E6%9C%BA&spm=1001.2101.3001.7020)
+#### RunSyncSlavePartitionStateMachine-
 
 该函数就是处理主从同步过程中的状态机，根据不同的状态去进行不同的操作。
 
@@ -185,7 +185,7 @@ Status SyncSlavePartition::CheckSyncTimeout(uint64_t now) {
 }
 ```
 
-#### TriggerSendBinlogSync-生成每个节点待发送的[binlog](https://so.csdn.net/so/search?q=binlog&spm=1001.2101.3001.7020)数据任务
+#### TriggerSendBinlogSync-生成每个节点待发送的数据任务
 
 ```c++
 Status PikaServer::TriggerSendBinlogSync() {

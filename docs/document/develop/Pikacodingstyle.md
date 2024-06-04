@@ -38,7 +38,7 @@ Related header, C library, C++ library, other libraries'.h`, your project's` .h\
 
 constructor 不能调用虚函数, 因为在构造的时候, 这个对象还没有完全生成, 因此调用虚函数肯定是不对的
 
-#### [](https://github.com/OpenAtomFoundation/pika/wiki/cpp---coding-style#inheritance)Inheritance
+#### Inheritance
 
 使用 override 来表示某一个函数是virtual 函数的重新实现, 这样就不需要在看代码的时候确认这个函数是否是重载, 如果在子类里面对一个父类没有的函数进行override也是会直接报错的
 
@@ -52,13 +52,13 @@ constructor 不能调用虚函数, 因为在构造的时候, 这个对象还没�
 
 ### Function
 
-#### [](https://github.com/OpenAtomFoundation/pika/wiki/cpp---coding-style#parameter-ordering)parameter Ordering
+#### parameter Ordering
 
 函数的变量的顺序: input, 然后是output
 
 尽量把一个函数控制在40行以内
 
-#### [](https://github.com/OpenAtomFoundation/pika/wiki/cpp---coding-style#reference-arguments)reference Arguments
+#### reference Arguments
 
 所有通过引用传参的变量都需要加上const, 也就是 const type &in
 
@@ -66,19 +66,19 @@ constructor 不能调用虚函数, 因为在构造的时候, 这个对象还没�
 
 还有就是如果变量需要传进来NULL的时候, 可能会用const T\*
 
-#### [](https://github.com/OpenAtomFoundation/pika/wiki/cpp---coding-style#function-overloading)function overloading
+#### function overloading
 
 尽可能的不要使用 function overloading, 因为function overloading 增加了c++ 的复杂性. 特别是当继承的时候, 子类只实现了父类的某一个function 的时候, 这样代码的复杂度就更麻烦了. 因为不知道重载的是哪一个函数, 因此
 
 尽可能的不要使用function overloading, 当遇到函数需要不用的变量类型的时候, 可以写成这种AppendString(), AppendInt() 这种
 
-#### [](https://github.com/OpenAtomFoundation/pika/wiki/cpp---coding-style#default-value)default value
+#### default value
 
 允许在非non-virtual 函数里面使用 default value
 
 ### scoping
 
-#### [](https://github.com/OpenAtomFoundation/pika/wiki/cpp---coding-style#nonmember-static-member-global-function)Nonmember, static member, global function
+#### Nonmember, static member, global function
 
 如果有一个函数和一个类的对象里面的内容并不相关
 
@@ -92,7 +92,7 @@ constructor 不能调用虚函数, 因为在构造的时候, 这个对象还没�
 
 ### other
 
-#### [](https://github.com/OpenAtomFoundation/pika/wiki/cpp---coding-style#%E5%85%B3%E4%BA%8Eexception-%E7%9A%84%E4%BD%BF%E7%94%A8)关于exception 的使用
+#### 关于exception 的使用
 
 - pros:
     - exception 可以发现更深层次的错误, 比如a()->b()->c()->d() 那么在d里面抛出的exception 在a里面是可以直接捕获的
@@ -100,11 +100,11 @@ constructor 不能调用虚函数, 因为在构造的时候, 这个对象还没�
 - cons
     - ​
 
-#### [](https://github.com/OpenAtomFoundation/pika/wiki/cpp---coding-style#%E5%85%B3%E4%BA%8E%E8%BF%94%E5%9B%9E%E5%80%BC)关于返回值
+#### 关于返回值
 
 1. 在一个函数内部调用
 
-#### [](https://github.com/OpenAtomFoundation/pika/wiki/cpp---coding-style#brace-initializer-list)brace initializer List
+#### brace initializer List
 
 在c++11 里面可以直接通过{} 来初始化一个list, 这个是在c++ 11 之前都不可以的, 比如:
 
@@ -117,29 +117,29 @@ int main()
 }
 ```
 
-#### [](https://github.com/OpenAtomFoundation/pika/wiki/cpp---coding-style#sizeof)sizeof
+#### sizeof
 
 在使用sizeof 的时候尽可能的去sizeof(varname), 而不是去sizeof(type). 因此这个varname 随时会更新, 如果varname 这个变量被赋值给其他对象的时候
 
 注意sizeof 的时候考虑对齐的问题
 
-#### [](https://github.com/OpenAtomFoundation/pika/wiki/cpp---coding-style#run-time-type-informationrtti)Run-Time Type Information(RTTI)
+#### Run-Time Type Information(RTTI)
 
 c++ 允许在运行的过程中使用typeid, dynamic\_cast 来检查一个变量的类型, 通过dynamic\_cast 在类型转换的时候进行检查, 只允许父类的指针指向子类, 而不允许子类的指针指向父类
 
 但是其实用RTTI 的代码都可以用其他的方式来写, 而RTTI 不是很高效, 因此尽可能用 virtual method, 或者 Visitor pattern 模式来实现比较好
 
-#### [](https://github.com/OpenAtomFoundation/pika/wiki/cpp---coding-style#cast)cast
+#### cast
 
 尽可能的使用 c++ 的static\_cast, const\_cast, reinterpret\_cast 而不是用c 里面的cast
 
-#### [](https://github.com/OpenAtomFoundation/pika/wiki/cpp---coding-style#stream)stream
+#### stream
 
 如果你为了debug想要打印一个对象内部的细节, 那么经常会提供一个DebugString() 是最经常的
 
 不要使用stream 作为外部用户的IO, stream 性能还是不行的
 
-#### [](https://github.com/OpenAtomFoundation/pika/wiki/cpp---coding-style#friend)Friend
+#### Friend
 
 允许使用 Friend class, function
 
@@ -149,15 +149,15 @@ Friend class 只是让某一个类可以访问这个类, 还是比让所有的�
 
 因此Friend class 需要看到Foo 的私有变量, 因此经常将Friend class 放在同一个头文件里面
 
-#### [](https://github.com/OpenAtomFoundation/pika/wiki/cpp---coding-style#use-of-const)use of const
+#### use of const
 
 能用const 的地方尽可能的使用const
 
-#### [](https://github.com/OpenAtomFoundation/pika/wiki/cpp---coding-style#integer-type)Integer type
+#### Integer type
 
 用<stdint.h> 里面定义的int32\_t, int64\_t 等等, 而不适用short, long, long long 这种类型, 因为short, long 等是根据编译器和平台是不一样的
 
-#### [](https://github.com/OpenAtomFoundation/pika/wiki/cpp---coding-style#0-and-nullptrnull)0 and nullptr/NULL
+#### 0 and nullptr/NULL
 
 Use 0 for integers, 0.0 for reals, nullptr (or NULL) for pointers, and '\\0' for chars.
 
@@ -165,7 +165,7 @@ Use 0 for integers, 0.0 for reals, nullptr (or NULL) for pointers, and '\\0' for
 
 ### Comments
 
-#### [](https://github.com/OpenAtomFoundation/pika/wiki/cpp---coding-style#todo-comment)TODO comment
+#### TODO comment
 
 写TODO comment 的时候记得写上谁写的这个TODO
 

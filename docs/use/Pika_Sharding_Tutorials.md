@@ -5,7 +5,7 @@ date: '2023-12-02'
 ---
 关于sharding mode，pika底层提供slot 的概念。Pika将key进行哈希取模之后散列到各个slot当中处理。sharding mode 根据线上的具体情况可以应用于单个pika，也可以应用到多个pika组成的pika cluster。这个tutorial主要介绍开启sharding mode 需要了解的一些概念，以及需要调整的一些配置参数。
 
-#### [](https://github.com/OpenAtomFoundation/pika/wiki/Pika-Sharding-Tutorials#0-%E6%A8%A1%E5%BC%8F%E7%9A%84%E9%80%89%E6%8B%A9)0\. 模式的选择
+#### 0\. 模式的选择
 
 目前pika 分为两种模式，两种模式不可兼容，所以请一定先根据业务确定使用哪一种模式。
 
@@ -21,15 +21,15 @@ date: '2023-12-02'
 
 具体的性能测试可以参考 [3.2.x Performance](https://github.com/Qihoo360/pika/wiki/3.2.x-Performance)。
 
-#### [](https://github.com/OpenAtomFoundation/pika/wiki/Pika-Sharding-Tutorials#1-%E6%89%80%E9%9C%80%E8%A6%81%E7%89%88%E6%9C%AC)1\. 所需要版本
+#### 1\. 所需要版本
 
 Pika 从3.2.0版本之后支持sharding mode，建议用最新release。
 
-#### [](https://github.com/OpenAtomFoundation/pika/wiki/Pika-Sharding-Tutorials#2-%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C)2\. 基本操作
+#### 2\. 基本操作
 
 关于slots的基本操作详见 [slot commands](https://github.com/Qihoo360/pika/wiki/Pika%E5%88%86%E7%89%87%E5%91%BD%E4%BB%A4)
 
-#### [](https://github.com/OpenAtomFoundation/pika/wiki/Pika-Sharding-Tutorials#3-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E)3\. 配置文件说明
+#### 3\. 配置文件说明
 
 相关的配置文件调参
 
@@ -58,7 +58,7 @@ max-cache-files : 100
 
 配置文件的说明可以在[配置说明](https://github.com/Qihoo360/pika/wiki/pika-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E)中找到。 特别说明的是write-buffer-size 代表的是每一个rockdb实例的每一个memtable的大小，所有的rocksdb的所有的memtable大小上限由 max-write-buffer-size控制。如果达到max-write-buffer-size数值，每个rocksdb 实例都会尝试flush当前的memtable以减少内存使用。
 
-#### [](https://github.com/OpenAtomFoundation/pika/wiki/Pika-Sharding-Tutorials#4-%E5%85%BC%E5%AE%B9codistwemproxy%E6%96%B9%E6%A1%88)4\. 兼容codis，twemproxy方案
+#### 4\. 兼容codis，twemproxy方案
 
 目前的分布式框架依赖于开源项目，目前pika兼容codis，twemproxy。
 
