@@ -31,7 +31,6 @@ module.exports = {
         // ],
       },
       { text: "工具包", link: "/tool/3.2.新旧可读三类binlog转换工具" },
-      // { text: "GitHub", link: "https://github.com/OpenAtomFoundation/pika" },
       {
         text: "GitHub",
         icon: "reco-github",
