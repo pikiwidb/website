@@ -11,9 +11,13 @@ cd website
 npm run docs:dev
 ```
 
+## License
+
+GPL-2.0
+
 ## References
 
-[Pika Wiki](https://github.com/OpenAtomFoundation/pika/wiki)
-[Vuepress Guide](https://v1.vuepress.vuejs.org/zh/guide/)
-[Vuepress Config](https://v1.vuepress.vuejs.org/zh/config/)
-[Document of reco theme](http://v1.vuepress-reco.recoluan.com/views/1.x/)
+[Pika Wiki](https://github.com/OpenAtomFoundation/pika/wiki)   
+[Vuepress Guide](https://v1.vuepress.vuejs.org/zh/guide/)   
+[Vuepress Config](https://v1.vuepress.vuejs.org/zh/config/)   
+[Document of reco theme](http://v1.vuepress-reco.recoluan.com/views/1.x/)   
