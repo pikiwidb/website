@@ -1,7 +1,7 @@
 module.exports = {
-  title: "Pika文档",
+  title: "Pika 文档",
   description:
-    "Pika 是一个以 RocksDB 为存储引擎的的大容量、高性能、多租户、数据可持久化的弹性 KV 数据存储系统。Pika 力求在完全兼容 Redis 协议、 继承 Redis 便捷运维设计的前提下， 通过持久化存储的方式解决 Redis 在大容量场景下的问题，如单线程易阻塞、服务器资源有限、加载数据慢、故障切换成本高。",
+    " ",
   base: "/",
   theme: "vuepress-theme-reco",
   // theme: "vdoing",
