@@ -340,48 +340,4 @@ module.exports = {
     author: "Pika",
     startYear: "2015",
   },
-  plugins: [
-    [
-      "@vuepress-reco/vuepress-plugin-bulletin-popover",
-      {
-        width: "300px", // 默认 260px
-        title: "公告",
-        body: [
-          {
-            type: "title",
-            content: "Pika最新版本3.5.4已经发布 🎉",
-            style: "text-aligin: center;",
-          },
-          {
-            type: "text",
-            content: "对Pika感兴趣或有问题欢迎加群交流😀",
-          },
-          {
-            type: "image",
-            src: "/pika-wechat.png",
-          },
-          {
-            type: "text",
-            content: "还可以关注公众号获取最新动态🤩",
-          },
-          {
-            type: "image",
-            src: "/pika-sub.png",
-          },
-        ],
-        //   footer: [
-        //     {
-        //       type: 'button',
-        //       text: '打赏',
-        //       link: '/donate'
-        //     },
-        //     {
-        //       type: 'button',
-        //       text: '打赏',
-        //       link: '/donate'
-        //     }
-        //   ]
-      },
-    ],
-  ],
 };
