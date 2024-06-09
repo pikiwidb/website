@@ -25,10 +25,9 @@ module.exports = {
         //   { text: "设计与实现", link: "/document/design/整体架构" },
         // ],
       },
-      { text: "工具包", link: "/tool/3.2.新旧可读三类binlog转换工具" },
       {
-        text: "GitHub",
-        icon: "reco-github",
+        text: "文档仓库",
+        icon: "",
         link: "https://github.com/OpenAtomFoundation/pika",
       },
     ],
@@ -278,8 +277,6 @@ module.exports = {
             { title: "社区贡献文档", path: "/document/社区贡献文档" },
           ],
         },
-      ],
-      "/tool/": [
         {
           title: "工具包",
           path: "/tool/3.2.新旧可读三类binlog转换工具",
@@ -287,42 +284,42 @@ module.exports = {
           children: [
             {
               title: "3.2.新，旧，可读三类binlog转换工具",
-              path: "/tool/3.2.新旧可读三类binlog转换工具",
+              path: "/document/tool/3.2.新旧可读三类binlog转换工具",
             },
             {
               title: "根据时间戳恢复数据工具",
-              path: "/tool/根据时间戳恢复数据工具",
+              path: "/document/tool/根据时间戳恢复数据工具",
             },
-            { title: "Redis到Pika迁移工具", path: "/tool/Redis到Pika迁移工具" },
+            { title: "Redis到Pika迁移工具", path: "/document/tool/Redis到Pika迁移工具" },
             {
               title: "Redis请求实时copy到Pika工具",
-              path: "/tool/Redis请求实时copy到Pika工具",
+              path: "/document/tool/Redis请求实时copy到Pika工具",
             },
             {
               title:
                 "Pika到Pika、Redis迁移工具 Pika-Port(适用于 Pika v2.x&v3.0.x)",
-              path: "/tool/Pikatool1",
+              path: "/document/tool/Pikatool1",
             },
             {
               title:
                 "Pika到Pika、Redis迁移工具 Pika-Migrage(适用于 Pika v3.2及以上版本)",
-              path: "/tool/Pikatool2",
+              path: "/document/tool/Pikatool2",
             },
             {
               title: "Pika的kv数据写入txt文本工具",
-              path: "/tool/Pika的kv数据写入txt文本工具",
+              path: "/document/tool/Pika的kv数据写入txt文本工具",
             },
             {
               title: "kv数据txt文本迁移Pika工具",
-              path: "/tool/kv数据txt文本迁移Pika工具",
+              path: "/document/tool/kv数据txt文本迁移Pika工具",
             },
             {
               title: "pika exporter监控工具",
-              path: "/tool/pikaexporter监控工具",
+              path: "/document/tool/pikaexporter监控工具",
             },
             {
               title: "codis-redis实时同步pika工具",
-              path: "/tool/codis-redis实时同步pika工具",
+              path: "/document/tool/codis-redis实时同步pika工具",
             },
           ],
         },
