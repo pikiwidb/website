@@ -14,5 +14,8 @@
     "@vuepress/bundler-vite": "^2.0.0-rc.13",
     "vuepress": "^1.9.10",
     "vuepress-theme-reco": "^1.6.17"
+  },
+  "dependencies": {
+    "vite": "^5.3.2"
   }
 }

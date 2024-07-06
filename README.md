@@ -13,7 +13,7 @@ npm run docs:dev
 
 ## License
 
-GPL-2.0
+BSD
 
 ## References
 

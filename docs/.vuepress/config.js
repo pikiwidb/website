@@ -217,67 +217,6 @@ module.exports = {
           ],
         },
         {
-          title: "更新日志",
-          //   path: "/document/history/Pika_v3.5.2",
-          // collapsable: true,
-          collapsable: false,
-          children: [
-            {
-              title: "版本日志",
-              path: "/document/history/Pika_v3.5.2",
-              collapsable: true,
-              children: [
-                {
-                  title: "What's new in Pika v3.5.2",
-                  path: "/document/history/Pika_v3.5.2",
-                },
-                {
-                  title: "What's new in Pika v3.5.1",
-                  path: "/document/history/Pika_v3.5.1",
-                },
-                {
-                  title: "What's new in Pika v3.5.0",
-                  path: "/document/history/Pika_v3.5.0",
-                },
-              ],
-            },
-            {
-              title: "周会纪要",
-              path: "/document/weekly/20231201周会纪要",
-              collapsable: true,
-              children: [
-                {
-                  title: "20231201 周会纪要",
-                  path: "/document/weekly/20231201周会纪要",
-                },
-                {
-                  title: "20231124 周会纪要",
-                  path: "/document/weekly/20231124周会纪要",
-                },
-                {
-                  title: "20231117 周会纪要",
-                  path: "/document/weekly/20231117周会纪要",
-                },
-                {
-                  title: "20231110 周会纪要",
-                  path: "/document/weekly/20231110周会纪要",
-                },
-              ],
-            },
-          ],
-        },
-        {
-          title: "项目资讯",
-          path: "/document/Pika动态",
-          collapsable: false,
-          children: [
-            { title: "Pika 公告栏", path: "/document/Pika动态" },
-            { title: "项目支持", path: "/document/项目支持" },
-            { title: "未来规划", path: "/document/未来规划" },
-            { title: "社区贡献文档", path: "/document/社区贡献文档" },
-          ],
-        },
-        {
           title: "工具包",
           path: "/tool/3.2.新旧可读三类binlog转换工具",
           collapsable: false,
