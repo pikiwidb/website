@@ -1,0 +1,28 @@
+{
+  "id": "开发文档/编码规范/index",
+  "title": "编码规范",
+  "description": "c++ coding style",
+  "source": "@site/docs/开发文档/编码规范/index.md",
+  "sourceDirName": "开发文档/编码规范",
+  "slug": "/开发文档/编码规范/",
+  "permalink": "/docs/开发文档/编码规范/",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://atomgit.com/zouxiangneihe/website/tree/master/docs/开发文档/编码规范/index.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 0,
+  "frontMatter": {
+    "title": "编码规范",
+    "sidebar_position": 0
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "编码规范",
+    "permalink": "/docs/开发文档/"
+  },
+  "next": {
+    "title": "更新日志",
+    "permalink": "/docs/更新日志/"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "更新日志/版本日志/v4.0.0/index",
+  "title": "Pika 4.0.0 版本",
+  "description": "尊敬的社区成员及技术爱好者们：",
+  "source": "@site/docs/更新日志/版本日志/v4.0.0/index.md",
+  "sourceDirName": "更新日志/版本日志/v4.0.0",
+  "slug": "/更新日志/版本日志/v4.0.0/",
+  "permalink": "/docs/更新日志/版本日志/v4.0.0/",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://atomgit.com/zouxiangneihe/website/tree/master/docs/更新日志/版本日志/v4.0.0/index.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "title": "Pika 4.0.0 版本",
+    "sidebar_position": 4
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Pika 3.5.4 版本",
+    "permalink": "/docs/更新日志/版本日志/v3.5.4/"
+  }
+}

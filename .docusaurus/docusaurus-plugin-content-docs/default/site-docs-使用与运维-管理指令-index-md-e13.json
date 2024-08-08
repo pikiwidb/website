@@ -1,0 +1,28 @@
+{
+  "id": "使用与运维/管理指令/index",
+  "title": "管理指令",
+  "description": "client kill all",
+  "source": "@site/docs/使用与运维/管理指令/index.md",
+  "sourceDirName": "使用与运维/管理指令",
+  "slug": "/使用与运维/管理指令/",
+  "permalink": "/docs/使用与运维/管理指令/",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://atomgit.com/zouxiangneihe/website/tree/master/docs/使用与运维/管理指令/index.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "title": "管理指令",
+    "sidebar_position": 4
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "page info 信息说明",
+    "permalink": "/docs/使用与运维/page info 信息说明/"
+  },
+  "next": {
+    "title": "差异化命令",
+    "permalink": "/docs/使用与运维/差异化命令/"
+  }
+}

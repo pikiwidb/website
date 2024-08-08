@@ -1,0 +1,24 @@
+{
+  "id": "概况/index",
+  "title": "概况",
+  "description": "",
+  "source": "@site/docs/概况/index.md",
+  "sourceDirName": "概况",
+  "slug": "/概况/",
+  "permalink": "/docs/概况/",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://atomgit.com/zouxiangneihe/website/tree/master/docs/概况/index.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 0,
+  "frontMatter": {
+    "title": "概况",
+    "sidebar_position": 0
+  },
+  "sidebar": "tutorialSidebar",
+  "next": {
+    "title": "Pika 介绍",
+    "permalink": "/docs/概况/Pika 介绍/"
+  }
+}

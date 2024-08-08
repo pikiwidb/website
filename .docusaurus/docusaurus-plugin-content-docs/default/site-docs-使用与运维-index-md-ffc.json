@@ -1,0 +1,28 @@
+{
+  "id": "使用与运维/index",
+  "title": "使用与运维",
+  "description": "",
+  "source": "@site/docs/使用与运维/index.md",
+  "sourceDirName": "使用与运维",
+  "slug": "/使用与运维/",
+  "permalink": "/docs/使用与运维/",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://atomgit.com/zouxiangneihe/website/tree/master/docs/使用与运维/index.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "title": "使用与运维",
+    "sidebar_position": 1
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "FAQ",
+    "permalink": "/docs/概况/FAQ/"
+  },
+  "next": {
+    "title": "安装使用",
+    "permalink": "/docs/使用与运维/安装使用/"
+  }
+}

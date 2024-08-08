@@ -1,0 +1,313 @@
+{
+  "/__docusaurus/debug-5ff": {
+    "__comp": "__comp---theme-debug-config-23-a-2ff",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    }
+  },
+  "/__docusaurus/debug/config-5ba": {
+    "__comp": "__comp---theme-debug-config-23-a-2ff",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    }
+  },
+  "/__docusaurus/debug/content-a2b": {
+    "__comp": "__comp---theme-debug-contentba-8-ce7",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    },
+    "__props": "__props---docusaurus-debug-content-3-c-0-be2"
+  },
+  "/__docusaurus/debug/globalData-c3c": {
+    "__comp": "__comp---theme-debug-global-dataede-0fa",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    }
+  },
+  "/__docusaurus/debug/metadata-156": {
+    "__comp": "__comp---theme-debug-site-metadata-68-e-3d4",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    }
+  },
+  "/__docusaurus/debug/registry-88c": {
+    "__comp": "__comp---theme-debug-registry-679-501",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    }
+  },
+  "/__docusaurus/debug/routes-000": {
+    "__comp": "__comp---theme-debug-routes-946-699",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    }
+  },
+  "/docs-e83": {
+    "__comp": "__comp---theme-docs-root-5-e-9-0b6",
+    "__context": {
+      "plugin": "plugin---docsaba-d7c"
+    }
+  },
+  "/docs-2a6": {
+    "__comp": "__comp---theme-doc-version-roota-7-b-5de",
+    "__props": "__props---docs-005-788"
+  },
+  "/docs-df6": {
+    "__comp": "__comp---theme-doc-roota-94-67a"
+  },
+  "/docs/使用与运维/-5f5": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-使用与运维-ffc-db3"
+  },
+  "/docs/使用与运维/page info 信息说明/-eef": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-使用与运维-page-info-信息说明-29-b-211"
+  },
+  "/docs/使用与运维/Pika 最佳实践/-5e2": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-使用与运维-pika-最佳实践-03-a-1d2"
+  },
+  "/docs/使用与运维/分片教程/-c6b": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-使用与运维-分片教程-a-77-8a8"
+  },
+  "/docs/使用与运维/副本一致性（使用文档）/-e86": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-使用与运维-副本一致性（使用文档）-069-951"
+  },
+  "/docs/使用与运维/升级指南/-9cf": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-使用与运维-升级指南-169-a10"
+  },
+  "/docs/使用与运维/升级指南/如何升级到 Pika 3.0/-bc4": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-使用与运维-升级指南-如何升级到-pika-3-0-28-d-9db"
+  },
+  "/docs/使用与运维/升级指南/如何升级到 Pika 3.1 或 3.2/-f12": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-使用与运维-升级指南-如何升级到-pika-3-1-或-3-2-bd-3-67d"
+  },
+  "/docs/使用与运维/升级指南/如何将 Pika 3.3.6 升级到 Pika 3.5/-b2f": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-使用与运维-升级指南-如何将-pika-3-3-6-升级到-pika-3-5-7-bd-d98"
+  },
+  "/docs/使用与运维/多库版命令/-3c5": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-使用与运维-多库版命令-82-b-abe"
+  },
+  "/docs/使用与运维/安装使用/-3a0": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-使用与运维-安装使用-d-12-a8f"
+  },
+  "/docs/使用与运维/差异化命令/-fcf": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-使用与运维-差异化命令-ae-7-c24"
+  },
+  "/docs/使用与运维/数据目录/-d15": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-使用与运维-数据目录-1-b-3-f3a"
+  },
+  "/docs/使用与运维/管理指令/-0bc": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-使用与运维-管理指令-e-13-386"
+  },
+  "/docs/使用与运维/自动容灾/-1d2": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-使用与运维-自动容灾-063-450"
+  },
+  "/docs/使用与运维/订阅/-18e": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-使用与运维-订阅-49-f-59e"
+  },
+  "/docs/使用与运维/配置文件说明/-17b": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-使用与运维-配置文件说明-c-6-b-bc2"
+  },
+  "/docs/开发文档/-7cf": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-开发文档-fac-613"
+  },
+  "/docs/开发文档/编码规范/-f7c": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-开发文档-编码规范-e-60-647"
+  },
+  "/docs/性能与优化/-fd2": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-性能与优化-a-74-686"
+  },
+  "/docs/性能与优化/3.2.x 性能/-b31": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-性能与优化-3-2-x-性能-adc-35c"
+  },
+  "/docs/性能与优化/Pika 3.5 参数优化手册/-e0f": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-性能与优化-pika-3-5-参数优化手册-30-d-264"
+  },
+  "/docs/性能与优化/Pika 优化案例/-088": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-性能与优化-pika-优化案例-bb-6-de3"
+  },
+  "/docs/性能与优化/Pika 优化案例/喜马拉雅 Redis 与 Pika 缓存使用军规/-51b": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-性能与优化-pika-优化案例-喜马拉雅-redis-与-pika-缓存使用军规-117-154"
+  },
+  "/docs/性能与优化/Pika 优化案例/调整 max-write-buffer-size 优化 pika 性能10倍的案例/-d3e": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-性能与优化-pika-优化案例-调整-max-write-buffer-size-优化-pika-性能-10-倍的案例-707-20c"
+  },
+  "/docs/性能与优化/Pika 内存使用/-c7d": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-性能与优化-pika-内存使用-bbb-e56"
+  },
+  "/docs/性能与优化/Redis 与 Pika scan 性能对比/-601": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-性能与优化-redis-与-pika-scan-性能对比-eb-8-cb9"
+  },
+  "/docs/更新日志/-64c": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-更新日志-7-fa-309"
+  },
+  "/docs/更新日志/版本日志/-8b2": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-更新日志-版本日志-50-b-bdd"
+  },
+  "/docs/更新日志/版本日志/v3.5.0/-2dc": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-更新日志-版本日志-v-3-5-0-2-d-7-010"
+  },
+  "/docs/更新日志/版本日志/v3.5.1/-9c1": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-更新日志-版本日志-v-3-5-1-587-b69"
+  },
+  "/docs/更新日志/版本日志/v3.5.2/-8d4": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-更新日志-版本日志-v-3-5-2-f-51-d92"
+  },
+  "/docs/更新日志/版本日志/v3.5.3/-072": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-更新日志-版本日志-v-3-5-3-f-31-efd"
+  },
+  "/docs/更新日志/版本日志/v3.5.4/-c1d": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-更新日志-版本日志-v-3-5-4-e-69-525"
+  },
+  "/docs/更新日志/版本日志/v4.0.0/-83a": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-更新日志-版本日志-v-4-0-0-45-e-d1e"
+  },
+  "/docs/概况/-769": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-概况-b-12-665"
+  },
+  "/docs/概况/FAQ/-214": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-概况-faq-523-c38"
+  },
+  "/docs/概况/Pika 介绍/-5a3": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-概况-pika-介绍-2-f-9-d21"
+  },
+  "/docs/概况/支持的 Redis 接口与兼容情况/-eaa": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-概况-支持的-redis-接口与兼容情况-868-c38"
+  },
+  "/docs/设计与实现/-9ca": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-设计与实现-999-d65"
+  },
+  "/docs/设计与实现/NoSQL 原理概述/-472": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-设计与实现-no-sql-原理概述-c-3-d-c60"
+  },
+  "/docs/设计与实现/Pika 与 Codis/-f53": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-设计与实现-pika-与-codis-107-91d"
+  },
+  "/docs/设计与实现/Pika 传火计划/-2f6": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-设计与实现-pika-传火计划-9-b-4-152"
+  },
+  "/docs/设计与实现/Pika 传火计划/主从同步/-911": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-设计与实现-pika-传火计划-主从同步-2-fc-1f3"
+  },
+  "/docs/设计与实现/Pika 传火计划/线程模型/-6ce": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-设计与实现-pika-传火计划-线程模型-a-38-416"
+  },
+  "/docs/设计与实现/Pika 传火计划/读写流程/-5dc": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-设计与实现-pika-传火计划-读写流程-a-95-da7"
+  },
+  "/docs/设计与实现/Pika 源码学习笔记/-48f": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-设计与实现-pika-源码学习笔记-8-d-7-499"
+  },
+  "/docs/设计与实现/Pika 源码学习笔记/Pika 和 RockSDB 的对接/-9cf": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-设计与实现-pika-源码学习笔记-pika-和-rock-sdb-的对接-406-8c8"
+  },
+  "/docs/设计与实现/Pika 源码学习笔记/Pika 的命令执行框架/-26a": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-设计与实现-pika-源码学习笔记-pika-的命令执行框架-872-9d4"
+  },
+  "/docs/设计与实现/Pika 源码学习笔记/PubSub 机制/-e15": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-设计与实现-pika-源码学习笔记-pub-sub-机制-a-60-6d4"
+  },
+  "/docs/设计与实现/Pika 源码学习笔记/通信和线程模型/-a01": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-设计与实现-pika-源码学习笔记-通信和线程模型-70-e-612"
+  },
+  "/docs/设计与实现/主从同步/-4d3": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-设计与实现-主从同步-65-e-b7a"
+  },
+  "/docs/设计与实现/全同步/-248": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-设计与实现-全同步-43-f-30a"
+  },
+  "/docs/设计与实现/副本一致性/-97a": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-设计与实现-副本一致性-653-c24"
+  },
+  "/docs/设计与实现/增量同步/-ea1": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-设计与实现-增量同步-15-d-dd0"
+  },
+  "/docs/设计与实现/快照式备份/-1e5": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-设计与实现-快照式备份-937-ea0"
+  },
+  "/docs/设计与实现/整体技术架构/-ccd": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-设计与实现-整体技术架构-184-c0e"
+  },
+  "/docs/设计与实现/新存储方案：详细解析/-948": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-设计与实现-新存储方案：详细解析-d-04-e36"
+  },
+  "/docs/设计与实现/新存储结构/-571": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-设计与实现-新存储结构-8-ad-f6a"
+  },
+  "/docs/设计与实现/旧存储结构/-f6e": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-设计与实现-旧存储结构-ab-9-b18"
+  },
+  "/docs/设计与实现/线程模型/-334": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-设计与实现-线程模型-e-85-bf0"
+  },
+  "/docs/设计与实现/锁的应用/-581": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-设计与实现-锁的应用-b-50-0ea"
+  },
+  "/-2e1": {
+    "__comp": "__comp---site-src-pages-index-jsc-4-f-f99",
+    "__context": {
+      "plugin": "plugin---a-74-9d6"
+    },
+    "config": "config---5-e-9-4f3"
+  }
+}

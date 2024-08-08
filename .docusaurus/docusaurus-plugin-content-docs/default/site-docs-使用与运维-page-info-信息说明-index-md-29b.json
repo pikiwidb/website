@@ -1,0 +1,28 @@
+{
+  "id": "使用与运维/page info 信息说明/index",
+  "title": "page info 信息说明",
+  "description": "执行INFO命令",
+  "source": "@site/docs/使用与运维/page info 信息说明/index.md",
+  "sourceDirName": "使用与运维/page info 信息说明",
+  "slug": "/使用与运维/page info 信息说明/",
+  "permalink": "/docs/使用与运维/page info 信息说明/",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://atomgit.com/zouxiangneihe/website/tree/master/docs/使用与运维/page info 信息说明/index.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "title": "page info 信息说明",
+    "sidebar_position": 3
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "数据目录",
+    "permalink": "/docs/使用与运维/数据目录/"
+  },
+  "next": {
+    "title": "管理指令",
+    "permalink": "/docs/使用与运维/管理指令/"
+  }
+}

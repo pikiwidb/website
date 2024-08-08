@@ -1,0 +1,24 @@
+{
+  "id": "index",
+  "title": "Pika 的简介与同 Redis 的比较",
+  "description": "Pika是什么",
+  "source": "@site/docs/index.md",
+  "sourceDirName": ".",
+  "slug": "/",
+  "permalink": "/docs/",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://atomgit.com/zouxiangneihe/website/tree/master/docs/index.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 0,
+  "frontMatter": {
+    "title": "Pika 的简介与同 Redis 的比较",
+    "sidebar_position": 0
+  },
+  "sidebar": "tutorialSidebar",
+  "next": {
+    "title": "Pika 的简介与同 Redis 的比较",
+    "permalink": "/docs/概况/Pika 的简介与同 Redis 的比较/"
+  }
+}
