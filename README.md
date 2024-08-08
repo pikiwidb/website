@@ -11,6 +11,7 @@ Pika 的文档网站同 [Pika Wiki](https://github.com/OpenAtomFoundation/pika/w
 ```shell
 git clone https://github.com/pikiwidb/website.git
 cd website
+npm install
 npm run start
 ```
 
